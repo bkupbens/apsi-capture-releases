@@ -73,7 +73,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 214 · 15 October 2026</p>
+  <p class="meta">For build 215 · 15 October 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -263,7 +263,7 @@ td:first-child { white-space: normal; }
 <h3 id="correct-them">Correct them</h3>
 <p>Press <kbd>e</kbd>. Press <kbd>⌘U</kbd> for <strong>Auto</strong> tone, pull a slider if it needs it, press <kbd>r</kbd> and drag a crop. The edit dot goes green the moment you change anything. For the run, <kbd>⌥⌘C</kbd> copies the settings from this frame; select the rest in the filmstrip and <kbd>⌥⌘V</kbd> pastes them, or <kbd>⇧⌘S</kbd> syncs them to everything picked.</p>
 <h3 id="send-them">Send them</h3>
-<p>Press <kbd>t</kbd>. The list says <em>Ready</em> — the frames with both dots green — and <em>Not finished</em>, with why. Choose the destination and type the match in <strong>Subfolder</strong>, and click <strong>Send</strong>. Each frame shows its progress and then a tick; a frame the server refused shows the server's own words in red.</p>
+<p>Press <kbd>t</kbd>. The list says <em>Ready</em> — the frames with both dots green — and <em>Not finished</em>, with why. Choose the destination and type the match in <strong>Subfolder</strong>, and click <strong>Send</strong> above the list. Each frame shows its progress and then a tick; a frame the server refused shows the server's own words in red.</p>
 <h3 id="back-to-the-game">Back to the game</h3>
 <p>Click the red swatch again to see the whole card. The next batch is <kbd>2</kbd>, yellow.</p>
 </div>
@@ -521,19 +521,19 @@ td:first-child { white-space: normal; }
 <h2 class="chapter" id="transmit">Transmit</h2>
 <p class="lede">Which frames are finished, what is missing from the ones that are not, where they go, and the button that sends them.</p>
 <p><kbd>t</kbd> opens the screen (<a class="figref" href="#fig-transmit">figure 10</a>). The frames shown are the frames in the window — if a batch is on, the batch.</p>
-<figure id="fig-transmit"><img src="figures/transmit.jpg" alt="The Transmit screen, filtered to the red batch: two ready, two not, and why."><figcaption><b>Figure 10.</b> The Transmit screen, filtered to the red batch: two ready, two not, and why.</figcaption></figure>
+<figure id="fig-transmit"><img src="figures/transmit.jpg" alt="The Transmit screen, filtered to the red batch: the send bar above the list, two frames ready, two not, and why."><figcaption><b>Figure 10.</b> The Transmit screen, filtered to the red batch: the send bar above the list, two frames ready, two not, and why.</figcaption></figure>
 <ol>
-<li><strong>Ready to send</strong> — every frame with both dots green: the dots, the colour bar, the outgoing filename and the rendered caption.</li>
+<li><strong>Send</strong>, above the list, with <strong>Include the unfinished ones</strong> beside it. The button says what will go — <em>Send 2 frames</em> — and reads <strong>Save</strong> when the destination is <em>Save locally</em>. If any frame shown is tagged, only the tagged ones go, and the button says so: <em>Send 3 tagged frames</em>. While it sends, the bar shows the progress and <strong>Stop</strong>; afterwards, what went and what failed.</li>
+<li><strong>Ready to send</strong> — every frame with both dots green: the dots, the colour bar, the outgoing filename and the rendered caption. The list scrolls under the bar.</li>
 <li><strong>Not finished</strong>, with the reason: <em>no caption</em>, <em>caption not confirmed</em>, <em>not edited</em>.</li>
-<li><strong>Ready</strong> — how many of the frames shown will go.</li>
-<li><strong>Preset</strong> — everything in the panel below, remembered under a name. <strong>Save as…</strong>, <strong>Update</strong>, <strong>Delete</strong>.</li>
+<li><strong>Preset</strong> — everything in the panel below, remembered under a name. <strong>Save as…</strong>, <strong>Update</strong>, <strong>Delete</strong>. <strong>Ready</strong>, above it, counts how many of the frames shown will go.</li>
 <li><strong>Destination</strong> — <strong>Save locally</strong> renders the JPEGs and sends nothing, or one of your FTP destinations; <strong>Manage…</strong> opens the list.</li>
 <li><strong>Subfolder</strong> — the match, made on the server if it is not there. Typed each game, and deliberately not part of the preset.</li>
 <li><strong>Keep a copy</strong> — a JPEG kept on this Mac as well: beside the photographs in a subfolder you name, so it travels with the frames, or in a folder of its own.</li>
 <li><strong>Rename to</strong> — a pattern for the outgoing name. <strong>Patterns</strong> lists the usual ones; <code>{name}</code> is the name on the card, <code>{seq:4}</code> numbers from the start you set (<kbd>0007</kbd>), <code>{date}</code> and <code>{time}</code> take a format, anything else is itself. The line beneath shows what the first frame will be called.</li>
 <li><strong>The file</strong> — always a JPEG, rendered from the raw. <strong>Resize to fit</strong> sets the long edge in pixels (<strong>don't enlarge</strong> for frames already smaller). <strong>Limit the file size</strong> sets a ceiling in MB: quality comes down first, and if that is not enough the frame is made smaller until it fits — better a smaller frame than one the drop refuses. <strong>Quality</strong> is the JPEG quality.</li>
 </ol>
-<p><strong>Send</strong> — <strong>Save</strong>, when the destination is <em>Save locally</em> — is at the foot of the panel and sends the ready frames; <strong>Include the unfinished ones</strong> sends everything shown — a photographer with four minutes to the whistle sends what is on the card, and the list says what it is sending. Progress is per frame; <strong>Stop</strong> stops. A sent frame shows a tick; a frame the server refused shows the server's own words in red, so a frame that did not go is never silent.</p>
+<p><strong>Send</strong> sends the ready frames; <strong>Include the unfinished ones</strong> sends everything shown — a photographer with four minutes to the whistle sends what is on the card, and the list says what it is sending. A sent frame shows a tick; a frame the server refused shows the server's own words in red, so a frame that did not go is never silent.</p>
 <p>Every JPEG leaves with the caption and the assignment written into the file itself — IPTC and XMP — along with the camera and lens. Nothing is written beside the raw: the JPEG is made in memory, goes up the wire and is let go, which is why sending the same frame again gives the same picture.</p>
 <aside class="note"><b>Note</b> The ready count and the lists follow the toolbar. If Transmit says <em>Nothing shown</em>, a swatch or the stars are filtering everything out.</aside>
 <h2 class="chapter" id="setting-up">Setting up</h2>
@@ -901,6 +901,11 @@ td:first-child { white-space: normal; }
 <td>The edit screen looks soft next to 1:1</td>
 <td>The edit view is a fitted preview; <kbd>z</kbd> is the sensor's pixels</td>
 <td>Judge sharpness at 1:1 or with the loupe</td>
+</tr>
+<tr>
+<td>The button says <em>Send … tagged frames</em></td>
+<td>A tag (<kbd>p</kbd>) is on some of the frames shown, and tagged frames are what goes</td>
+<td>Send just those, or press <kbd>p</kbd> on them to untag</td>
 </tr>
 <tr>
 <td>No update is offered</td>
