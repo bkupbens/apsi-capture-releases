@@ -3,6 +3,18 @@
     <channel>
         <title>APSI Capture</title>
         <item>
+            <title>0.1.211</title>
+            <pubDate>Thu, 15 Oct 2026 01:38:36 -0500</pubDate>
+            <sparkle:version>211</sparkle:version>
+            <sparkle:shortVersionString>0.1.211</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI-Capture-44c337d.dmg" length="3907870" type="application/octet-stream" sparkle:edSignature="hWQeTcffeuWi1tGRj8U2kwLlKHoNRNR67OI1SCUaDYbyil0l28HdJ1vaWhf8MWRZM2y7fMJe5qc7ScAnTgERAA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture211-199.delta" sparkle:deltaFrom="199" length="117842" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="w3FwxhBGSLGtK+U4ZaJZKSHT07NpQSD4YrQmiT9BQAE9dUumBG7R0dhXc7lP0HdQVB881VDGSX1VOCF2PHoKDw=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.1</title>
             <pubDate>Thu, 15 Oct 2026 01:11:57 -0500</pubDate>
             <sparkle:version>199</sparkle:version>
