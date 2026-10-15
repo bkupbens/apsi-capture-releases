@@ -88,6 +88,7 @@ td:first-child { white-space: normal; }
 </li>
 <li><a href="#installing-and-updating">Installing and updating</a><ul>
 <li><a href="#install">Install</a></li>
+<li><a href="#the-first-launch">The first launch</a></li>
 <li><a href="#updates">Updates</a></li>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#this-manual">This manual</a></li>
@@ -219,15 +220,19 @@ td:first-child { white-space: normal; }
 <li>The first time the app receives frames from a camera, macOS asks for <strong>Local Network</strong> permission. Allow it.</li>
 </ol>
 <p>The build you are running is in the window title (for example <em>0.1.212</em>) and under <strong>APSI Capture ▸ About APSI Capture</strong>. Quote it when you report a problem.</p>
+<h3 id="the-first-launch">The first launch</h3>
+<p>The first time it runs, APSI Capture says what it is — beta software, not for a paid shoot, no liability — and asks for your name and email. Type them and click <strong>I understand</strong>, or <strong>Quit</strong> if you would rather not. The name and email go to the desk with the build you are on, every time the app launches, so that a problem can be traced to a copy and the desk can see who is on which build.</p>
+<figure id="fig-first-launch"><img src="figures/first-launch.jpg" alt="The first launch: what the app is, and who you are."><figcaption><b>Figure 2.</b> The first launch: what the app is, and who you are.</figcaption></figure>
 <h3 id="updates">Updates</h3>
 <p>The app checks for a newer build every hour while it is running and offers it with its release notes and an <strong>Install Update</strong> button. Click it: the new build downloads, replaces the app in Applications and relaunches. To check at any moment, choose <strong>APSI Capture ▸ Check for Updates…</strong>. You never need a new DMG after the first install.</p>
+<p>A build more than one behind the newest is withdrawn: the app says so, offers <strong>Check for Updates…</strong>, and will not run until it has updated.</p>
 <h3 id="requirements">Requirements</h3>
 <p>macOS 15 or later, on Apple silicon.</p>
 <h3 id="this-manual">This manual</h3>
 <p><strong>Help ▸ APSI Capture Manual</strong> (<kbd>⌘?</kbd>) opens this manual from inside the app, including with no signal at a ground. The latest copy is also at <a href="https://bkupbens.github.io/apsi-capture-releases/">bkupbens.github.io/apsi-capture-releases</a>, with the newest build.</p>
 <h2 class="chapter" id="the-window">The window</h2>
 <p class="lede">One window, four screens. The toolbar, the tabs and the status bar stay the same on all of them, so once you know the contact sheet you know where everything is.</p>
-<figure id="fig-window"><img src="figures/window.jpg" alt="The contact sheet, with the parts of the window that every screen shares."><figcaption><b>Figure 2.</b> The contact sheet, with the parts of the window that every screen shares.</figcaption></figure>
+<figure id="fig-window"><img src="figures/window.jpg" alt="The contact sheet, with the parts of the window that every screen shares."><figcaption><b>Figure 3.</b> The contact sheet, with the parts of the window that every screen shares.</figcaption></figure>
 <ol>
 <li><strong>Tabs</strong> — one per card or folder, with the number of frames and a dot for each batch marked in it. <kbd>+</kbd> opens another; <kbd>⌘W</kbd> closes one.</li>
 <li><strong>The four steps</strong> — Select, Caption, Edit, Transmit. Click, or press <kbd>s</kbd> <kbd>c</kbd> <kbd>e</kbd> <kbd>t</kbd>.</li>
@@ -239,7 +244,7 @@ td:first-child { white-space: normal; }
 <li><strong>The status bar</strong> — what the app is doing (<em>Scanning…</em>), the <strong>ftp</strong> and <strong>tethered</strong> lights, the loupe factor, and every key with what it does.</li>
 </ol>
 <h3 id="what-a-frame-shows">What a frame shows</h3>
-<figure id="fig-cell"><img src="figures/cell.jpg" alt="A frame on the contact sheet and the marks it carries."><figcaption><b>Figure 3.</b> A frame on the contact sheet and the marks it carries.</figcaption></figure>
+<figure id="fig-cell"><img src="figures/cell.jpg" alt="A frame on the contact sheet and the marks it carries."><figcaption><b>Figure 4.</b> A frame on the contact sheet and the marks it carries.</figcaption></figure>
 <ol>
 <li><strong>The batch colour</strong>, as a bar along the bottom.</li>
 <li><strong>Two dots</strong> — caption and edit, in the order your steps are in. Green is done, orange is started, none is untouched. Both green means ready.</li>
@@ -258,8 +263,8 @@ td:first-child { white-space: normal; }
 <p>Scroll to the goal. Click the first frame you want, then press <kbd>1</kbd>: a red bar appears under it, and a red dot appears on the tab. Arrow to the next and press <kbd>1</kbd> again. For a run, click the first, <kbd>⇧</kbd>-click the last, and press <kbd>1</kbd> once — every picked frame takes the colour.</p>
 <aside class="tip"><b>Tip</b> Hold the mouse button down on a frame on the big view for the loupe — that spot at 1:1 — to check focus before you commit a frame to the batch. Let go and it comes back.</aside>
 <h3 id="work-inside-the-batch">Work inside the batch</h3>
-<p>Click the <strong>red swatch</strong> in the toolbar. The sheet now shows only the red frames, and so will every other screen until you click the swatch again (<a class="figref" href="#fig-batch">figure 4</a>). The rest of the card is still there; it is just out of the way.</p>
-<figure id="fig-batch"><img src="figures/batch.jpg" alt="The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist."><figcaption><b>Figure 4.</b> The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist.</figcaption></figure>
+<p>Click the <strong>red swatch</strong> in the toolbar. The sheet now shows only the red frames, and so will every other screen until you click the swatch again (<a class="figref" href="#fig-batch">figure 5</a>). The rest of the card is still there; it is just out of the way.</p>
+<figure id="fig-batch"><img src="figures/batch.jpg" alt="The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist."><figcaption><b>Figure 5.</b> The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist.</figcaption></figure>
 <h3 id="caption-them">Caption them</h3>
 <p>Press <kbd>c</kbd>. The first red frame is up with the caption screen beside it. Type what is happening — <em>scores the opening goal</em> — and watch <strong>Rendered caption</strong> build the agency's sentence around it: date, place, your words, venue, credit. Press <kbd>⌘⏎</kbd> (<strong>Confirm &amp; Next</strong>): the caption dot goes green and the next red frame is up. The counter by the name reads <em>2 / 8 red</em> — where you are in the batch. When a frame is the same moment with a different shirt, <kbd>⌃⌘C</kbd> copies the words and <kbd>⌃⌘V</kbd> pastes them.</p>
 <h3 id="correct-them">Correct them</h3>
@@ -281,7 +286,7 @@ td:first-child { white-space: normal; }
 <p><strong>File ▸ Open Recent</strong> lists the last folders; <kbd>⌘W</kbd> closes a tab. Several can be open at once.</p>
 <h3 id="ingest-a-card">Ingest a card</h3>
 <p>Ingest copies the card to a folder on the Mac and opens the copy — what you want before the card goes back in the camera.</p>
-<figure id="fig-ingest"><img src="figures/ingest.jpg" alt="The ingest sheet. Source, what to copy, where to, and the template that goes on every frame."><figcaption><b>Figure 5.</b> The ingest sheet. Source, what to copy, where to, and the template that goes on every frame.</figcaption></figure>
+<figure id="fig-ingest"><img src="figures/ingest.jpg" alt="The ingest sheet. Source, what to copy, where to, and the template that goes on every frame."><figcaption><b>Figure 6.</b> The ingest sheet. Source, what to copy, where to, and the template that goes on every frame.</figcaption></figure>
 <ol>
 <li><strong>From Card</strong> copies a card in the reader. <strong>From Camera</strong> reads the card in a body on a USB-C cable.</li>
 <li><strong>Source</strong> — the cards mounted. <strong>Rescan</strong> looks again; <strong>Select Folder…</strong> picks any folder.</li>
@@ -332,7 +337,7 @@ td:first-child { white-space: normal; }
 <h2 class="chapter" id="select">Select</h2>
 <p class="lede">Select is where you decide what you are sending. Two views, and everything on the keyboard.</p>
 <h3 id="the-contact-sheet">The contact sheet</h3>
-<p><kbd>g</kbd> from anywhere. Every frame as a thumbnail with its name, time and marks (<a class="figref" href="#fig-window">figure 2</a>). The slider at the top right sets the size; the sheet handles cards of ten thousand frames without slowing down, so scroll freely.</p>
+<p><kbd>g</kbd> from anywhere. Every frame as a thumbnail with its name, time and marks (<a class="figref" href="#fig-window">figure 3</a>). The slider at the top right sets the size; the sheet handles cards of ten thousand frames without slowing down, so scroll freely.</p>
 <div class="table"><table>
 <thead>
 <tr>
@@ -362,7 +367,7 @@ td:first-child { white-space: normal; }
 <p>A mark applies to every picked frame at once, so pick a run and press the key.</p>
 <h3 id="the-big-view">The big view</h3>
 <p><kbd>s</kbd>, <kbd>space</kbd>, <kbd>return</kbd>, or double-click a thumbnail: one frame filling the window, sharp enough to judge focus. Arrow keys move through the frames and the sheet follows. <kbd>esc</kbd> or <kbd>g</kbd> goes back.</p>
-<figure id="fig-view"><img src="figures/view.jpg" alt="The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar."><figcaption><b>Figure 6.</b> The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar.</figcaption></figure>
+<figure id="fig-view"><img src="figures/view.jpg" alt="The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar."><figcaption><b>Figure 7.</b> The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar.</figcaption></figure>
 <p><strong>Looking closer.</strong> Hold the mouse button down anywhere on the picture for the <strong>loupe</strong> — that spot at the factor on the loupe slider in the status bar, which <kbd>⌘+</kbd>, <kbd>⌘−</kbd> and <kbd>⌘0</kbd> change. Let go and it comes back. Press <kbd>z</kbd> for <strong>1:1</strong>: the whole frame at one screen pixel per sensor pixel, drag to pan, <kbd>z</kbd> or <kbd>esc</kbd> to leave.</p>
 <p><strong>Before and after.</strong> <kbd>\</kbd> shows the frame as it came off the camera; press it again for your version.</p>
 <h3 id="marking-frames">Marking frames</h3>
@@ -410,7 +415,7 @@ td:first-child { white-space: normal; }
 <h3 id="mark-a-batch">Mark a batch</h3>
 <p>Pick the frames and press a number: <kbd>1</kbd> for red, <kbd>2</kbd> for yellow, up to <kbd>8</kbd>. The bar under each thumbnail shows the colour, the tab shows a dot for every batch that exists, and the status bar counts them — <em>red 8 · yellow 3</em>.</p>
 <h3 id="work-inside-it">Work inside it</h3>
-<p>Click the batch's <strong>swatch</strong> in the toolbar (<a class="figref" href="#fig-batch">figure 4</a>). The window now holds only that batch:</p>
+<p>Click the batch's <strong>swatch</strong> in the toolbar (<a class="figref" href="#fig-batch">figure 5</a>). The window now holds only that batch:</p>
 <ul>
 <li>the contact sheet and the big view show those frames, and the arrow keys move within them;</li>
 <li>the caption screen's <strong>Confirm &amp; Next</strong> and <strong>Next →</strong> move to the next frame <em>in the batch</em>, and the counter by the name says where you are — <em>3 / 8 red</em>;</li>
@@ -425,8 +430,8 @@ td:first-child { white-space: normal; }
 <p>Press another number to move a frame to a different batch; <kbd>0</kbd> clears it. Sort by <strong>Batch colour</strong> to see the batches side by side.</p>
 <h2 class="chapter" id="caption">Caption</h2>
 <p class="lede">You type what is happening; the app writes the caption the agency wants around it.</p>
-<p><kbd>c</kbd> opens the screen on the frame in hand, with the big view beside it (<a class="figref" href="#fig-caption">figure 7</a>).</p>
-<figure id="fig-caption"><img src="figures/caption.jpg" alt="The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath."><figcaption><b>Figure 7.</b> The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath.</figcaption></figure>
+<p><kbd>c</kbd> opens the screen on the frame in hand, with the big view beside it (<a class="figref" href="#fig-caption">figure 8</a>).</p>
+<figure id="fig-caption"><img src="figures/caption.jpg" alt="The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath."><figcaption><b>Figure 8.</b> The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath.</figcaption></figure>
 <ol>
 <li><strong>Caption</strong> — the words that are yours: <em>scores the opening goal</em>, <em>celebrates with</em>. Codes are expanded as you type.</li>
 <li><strong>Rendered caption</strong> — the sentence exactly as it will be written into the file: date, city, your words, venue, credit. Correct a field below and it follows. The counter is the agency's limit.</li>
@@ -452,8 +457,8 @@ td:first-child { white-space: normal; }
 <p>If the camera recorded a sound memo, the microphone button plays it (<kbd>v</kbd>), so you can caption from what you said at the time.</p>
 <h2 class="chapter" id="edit">Edit</h2>
 <p class="lede">Crop, straighten, tone and colour — on the raw, as numbers beside the frame. The JPEG that leaves is rendered from those numbers, so what you judge here is what the agency gets.</p>
-<p><kbd>e</kbd> opens the frame in hand on the edit screen (<a class="figref" href="#fig-edit">figure 8</a>).</p>
-<figure id="fig-edit"><img src="figures/edit.jpg" alt="The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below."><figcaption><b>Figure 8.</b> The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below.</figcaption></figure>
+<p><kbd>e</kbd> opens the frame in hand on the edit screen (<a class="figref" href="#fig-edit">figure 9</a>).</p>
+<figure id="fig-edit"><img src="figures/edit.jpg" alt="The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below."><figcaption><b>Figure 9.</b> The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below.</figcaption></figure>
 <ol>
 <li><strong>Histogram</strong> of the frame as corrected.</li>
 <li><strong>The frame's name and its two dots.</strong> The edit dot goes green the moment anything changes.</li>
@@ -501,8 +506,8 @@ td:first-child { white-space: normal; }
 <p><kbd>⌘U</kbd> sets exposure, contrast, highlights, shadows, whites, blacks and vibrance from the picture; <kbd>⇧⌘U</kbd> sets the white balance. It is a starting point: look, and pull back what it overdid.</p>
 <aside class="why"><b>Why</b> Auto reads a small sample of the frame as it arrived and answers one question per slider. Exposure is set from the lit part of the frame rather than the middle, because half a sports frame is shaded crowd; highlights come down only for pixels that are actually clipped, so a sunlit frame full of white shirts is not darkened for them. Percentiles, not extremes: one specular highlight off a wet shirt does not decide the exposure of a match.</aside>
 <h3 id="crop-and-straighten">Crop and straighten</h3>
-<p>Press <kbd>r</kbd> on any screen. The frame opens on the edit screen with the crop box over it (<a class="figref" href="#fig-crop">figure 9</a>).</p>
-<figure id="fig-crop"><img src="figures/crop.jpg" alt="Crop and straighten. The box stays put; the photograph moves behind it."><figcaption><b>Figure 9.</b> Crop and straighten. The box stays put; the photograph moves behind it.</figcaption></figure>
+<p>Press <kbd>r</kbd> on any screen. The frame opens on the edit screen with the crop box over it (<a class="figref" href="#fig-crop">figure 10</a>).</p>
+<figure id="fig-crop"><img src="figures/crop.jpg" alt="Crop and straighten. The box stays put; the photograph moves behind it."><figcaption><b>Figure 10.</b> Crop and straighten. The box stays put; the photograph moves behind it.</figcaption></figure>
 <ol>
 <li><strong>Aspect</strong> — free, the original, square, 3:2 or 4:3.</li>
 <li><strong>Angle</strong> — or drag outside the box to straighten.</li>
@@ -522,8 +527,8 @@ td:first-child { white-space: normal; }
 <p>The working method the filmstrip is built for: start from a preset, fine-tune one frame, paste those settings onto the others, then tweak each one.</p>
 <h2 class="chapter" id="transmit">Transmit</h2>
 <p class="lede">Which frames are finished, what is missing from the ones that are not, where they go, and the button that sends them.</p>
-<p><kbd>t</kbd> opens the screen (<a class="figref" href="#fig-transmit">figure 10</a>). The frames shown are the frames in the window — if a batch is on, the batch.</p>
-<figure id="fig-transmit"><img src="figures/transmit.jpg" alt="The Transmit screen, filtered to the red batch: the send bar above the list, two frames ready, two not, and why."><figcaption><b>Figure 10.</b> The Transmit screen, filtered to the red batch: the send bar above the list, two frames ready, two not, and why.</figcaption></figure>
+<p><kbd>t</kbd> opens the screen (<a class="figref" href="#fig-transmit">figure 11</a>). The frames shown are the frames in the window — if a batch is on, the batch.</p>
+<figure id="fig-transmit"><img src="figures/transmit.jpg" alt="The Transmit screen, filtered to the red batch: the send bar above the list, two frames ready, two not, and why."><figcaption><b>Figure 11.</b> The Transmit screen, filtered to the red batch: the send bar above the list, two frames ready, two not, and why.</figcaption></figure>
 <ol>
 <li><strong>Send</strong>, above the list, with <strong>Include the unfinished ones</strong> beside it. The button says what will go — <em>Send 2 frames</em> — and reads <strong>Save</strong> when the destination is <em>Save locally</em>. To send only the tagged frames, choose <strong>Tagged</strong> in the toolbar; the list and the button narrow together. While it sends, the bar shows the progress and <strong>Stop</strong>; afterwards, what went and what failed.</li>
 <li><strong>Ready to send</strong> — every frame with both dots green: the dots, the colour bar, the outgoing filename and the rendered caption. The list scrolls under the bar.</li>
@@ -542,7 +547,7 @@ td:first-child { white-space: normal; }
 <p class="lede">Done once, or once a season: where frames are sent, what goes onto them at ingest, and the code sheets.</p>
 <h3 id="ftp-destinations">FTP destinations</h3>
 <p><strong>File ▸ FTP Destinations…</strong>, or <strong>Manage…</strong> on the Transmit screen. Each destination is a host, a login and a folder kept under a name — <em>Imagn</em>, <em>Action Plus</em>, <em>the club</em> — so the choice at the moment of sending is the name, not seven fields.</p>
-<figure id="fig-destinations"><img src="figures/destinations.jpg" alt="FTP Destinations. The one in bold is the one Transmit opens on."><figcaption><b>Figure 11.</b> FTP Destinations. The one in bold is the one Transmit opens on.</figcaption></figure>
+<figure id="fig-destinations"><img src="figures/destinations.jpg" alt="FTP Destinations. The one in bold is the one Transmit opens on."><figcaption><b>Figure 12.</b> FTP Destinations. The one in bold is the one Transmit opens on.</figcaption></figure>
 <div class="table"><table>
 <thead>
 <tr>
@@ -588,7 +593,7 @@ td:first-child { white-space: normal; }
 <p><strong>New…</strong>, <strong>Edit…</strong>, <strong>Duplicate</strong> and <strong>Remove</strong> manage the list; <strong>Use for Transmit</strong> makes one the default. The login is kept open between frames, which on a stadium connection is the difference between a minute and five.</p>
 <h3 id="xmp-templates">XMP templates</h3>
 <p><strong>Metadata ▸ XMP Templates…</strong>. A template is the assignment — headline, event, location, creator, credit, source, copyright, usage terms — kept as a file, so that when an agency rewrites its rights wording the template follows without being rebuilt by hand.</p>
-<figure id="fig-templates"><img src="figures/templates.jpg" alt="XMP Templates. What goes onto frames at ingest; the one in bold is chosen in the ingest sheet."><figcaption><b>Figure 12.</b> XMP Templates. What goes onto frames at ingest; the one in bold is chosen in the ingest sheet.</figcaption></figure>
+<figure id="fig-templates"><img src="figures/templates.jpg" alt="XMP Templates. What goes onto frames at ingest; the one in bold is chosen in the ingest sheet."><figcaption><b>Figure 13.</b> XMP Templates. What goes onto frames at ingest; the one in bold is chosen in the ingest sheet.</figcaption></figure>
 <ul>
 <li><strong>Import…</strong> reads a Photo Mechanic <kbd>.XMP</kbd> template as it is.</li>
 <li><strong>New…</strong> and <strong>Edit…</strong> open the editor; <strong>Reload All</strong> re-reads the files.</li>
@@ -597,7 +602,7 @@ td:first-child { white-space: normal; }
 <p>A template without a caption of its own leaves the caption to be built as a sentence around your words.</p>
 <h3 id="code-replacement">Code replacement</h3>
 <p><strong>Metadata ▸ Code Replacement…</strong>. The sheets that turn <kbd>.81.</kbd> into a name.</p>
-<figure id="fig-codes"><img src="figures/codes.jpg" alt="Code Replacement. The files consulted, and the two codes that mean different things in different files."><figcaption><b>Figure 13.</b> Code Replacement. The files consulted, and the two codes that mean different things in different files.</figcaption></figure>
+<figure id="fig-codes"><img src="figures/codes.jpg" alt="Code Replacement. The files consulted, and the two codes that mean different things in different files."><figcaption><b>Figure 14.</b> Code Replacement. The files consulted, and the two codes that mean different things in different files.</figcaption></figure>
 <ul>
 <li><strong>Add…</strong> a file. Photo Mechanic's tab-separated sheets, an entry list with arrows, and files with equals signs are all read; headings and blank lines are ignored. Several can be on at once.</li>
 <li><strong>Reload the files when they change</strong> — for a sheet somebody else keeps.</li>
@@ -908,6 +913,16 @@ td:first-child { white-space: normal; }
 <td>No update is offered</td>
 <td>The app checks once an hour</td>
 <td><strong>APSI Capture ▸ Check for Updates…</strong></td>
+</tr>
+<tr>
+<td><em>This build of APSI Capture can no longer be used</em></td>
+<td>It is more than one build behind the newest, or has been withdrawn</td>
+<td>Click <strong>Check for Updates…</strong> and install; the app relaunches on the new build</td>
+</tr>
+<tr>
+<td><em>You are no longer authorised to use this application</em></td>
+<td>The desk has withdrawn this Mac's access</td>
+<td>Delete the app. If you think that is a mistake, talk to the desk</td>
 </tr>
 </tbody>
 </table></div>
