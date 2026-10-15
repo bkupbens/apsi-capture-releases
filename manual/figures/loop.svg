@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 250" font-family="system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6e6e73"/>
+    </marker>
+  </defs>
+  <style>
+    .box { fill: #f3f4f6; stroke: #c9c9ce; stroke-width: 1.5; rx: 10; }
+    .key { fill: #0a7c7c; }
+    .t { font-size: 17px; fill: #1d1d1f; font-weight: 600; text-anchor: middle; }
+    .k { font-size: 13px; fill: #fff; font-weight: 600; text-anchor: middle; }
+    .s { font-size: 12.5px; fill: #6e6e73; text-anchor: middle; }
+    .l { fill: none; stroke: #6e6e73; stroke-width: 1.5; marker-end: url(#a); }
+  </style>
+  <!-- the camera -->
+  <rect class="box" x="20" y="70" width="130" height="70" style="fill:#e6f3f3; stroke:#0a7c7c"/>
+  <text class="t" x="85" y="100">Shoot</text>
+  <text class="s" x="85" y="122">the camera</text>
+  <!-- in -->
+  <rect class="box" x="190" y="70" width="130" height="70"/>
+  <text class="t" x="255" y="100">Frames in</text>
+  <text class="s" x="255" y="122">card · FTP · USB</text>
+  <rect class="key" x="233" y="48" width="44" height="18" rx="4"/><text class="k" x="255" y="61">o · i</text>
+  <!-- select -->
+  <rect class="box" x="360" y="70" width="130" height="70"/>
+  <text class="t" x="425" y="100">Select</text>
+  <text class="s" x="425" y="122">mark a batch</text>
+  <rect class="key" x="411" y="48" width="28" height="18" rx="4"/><text class="k" x="425" y="61">s</text>
+  <!-- caption -->
+  <rect class="box" x="530" y="70" width="130" height="70"/>
+  <text class="t" x="595" y="100">Caption</text>
+  <text class="s" x="595" y="122">your words</text>
+  <rect class="key" x="581" y="48" width="28" height="18" rx="4"/><text class="k" x="595" y="61">c</text>
+  <!-- edit -->
+  <rect class="box" x="700" y="70" width="130" height="70"/>
+  <text class="t" x="765" y="100">Edit</text>
+  <text class="s" x="765" y="122">crop · tone</text>
+  <rect class="key" x="751" y="48" width="28" height="18" rx="4"/><text class="k" x="765" y="61">e</text>
+  <!-- transmit -->
+  <rect class="box" x="870" y="70" width="70" height="70" style="fill:#e6f3f3; stroke:#0a7c7c"/>
+  <text class="t" x="905" y="100">Send</text>
+  <text class="s" x="905" y="122">t</text>
+  <!-- arrows -->
+  <path class="l" d="M150 105 H188"/>
+  <path class="l" d="M320 105 H358"/>
+  <path class="l" d="M490 105 H528"/>
+  <path class="l" d="M660 105 H698"/>
+  <path class="l" d="M830 105 H868"/>
+  <!-- back to the game -->
+  <path class="l" d="M905 140 V200 H85 V142"/>
+  <text class="s" x="495" y="192" style="fill:#1d1d1f">the batch is on the wire — back to the game, mark the next one</text>
+  <text class="s" x="660" y="232">Caption and Edit can be swapped: Window ▸ Select · Edit · Caption · Transmit</text>
+</svg>

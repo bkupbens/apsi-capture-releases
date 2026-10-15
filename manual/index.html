@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APSI Capture — User&#x27;s Manual</title>
+<style>
+:root { --ink: #1d1d1f; --mute: #6e6e73; --rule: #d9d9de; --tint: #0a7c7c; --soft: #f3f4f6; --key: #fbfbfd; }
+* { box-sizing: border-box; }
+html { font-size: 11pt; }
+body { margin: 0; color: var(--ink); background: #fff;
+       font-family: system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+       line-height: 1.5; font-size: 1rem; -webkit-font-smoothing: antialiased; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+.cover { height: 92vh; display: flex; flex-direction: column; justify-content: flex-end; page-break-after: always; }
+.cover h1 { font-size: 3rem; line-height: 1.1; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
+.cover .sub { font-size: 1.25rem; color: var(--mute); margin: 0 0 3rem; }
+.cover .meta { color: var(--mute); font-size: 0.9rem; }
+.contents { page-break-after: always; }
+.toc { margin: 0; padding: 0; list-style: none; }
+.toc ul { list-style: none; padding-left: 1.4rem; margin: 0.15rem 0 0.5rem; }
+.toc li { margin: 0.25rem 0; }
+.toc > li > a { font-weight: 600; }
+.toc a { color: var(--ink); text-decoration: none; }
+h1 { font-size: 2rem; line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.015em; }
+h2.chapter { font-size: 1.75rem; line-height: 1.15; margin: 0 0 0.75rem; padding-top: 0.25rem; letter-spacing: -0.015em; page-break-before: always; }
+h2.chapter + p.lede, p.lede { font-size: 1.1rem; color: var(--mute); margin: 0 0 1.25rem; }
+h3 { font-size: 1.2rem; margin: 1.6rem 0 0.4rem; line-height: 1.25; page-break-after: avoid; }
+h4 { font-size: 1rem; margin: 1.2rem 0 0.3rem; page-break-after: avoid; }
+p { margin: 0 0 0.8rem; }
+ul, ol { margin: 0 0 0.9rem; padding-left: 1.5rem; }
+li { margin: 0.2rem 0; }
+ol > li { padding-left: 0.2rem; }
+li > ul, li > ol { margin: 0.25rem 0 0.25rem; }
+strong { font-weight: 600; }
+a { color: var(--tint); text-decoration: none; }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.86em; background: var(--soft); padding: 0.05em 0.35em; border-radius: 4px; }
+kbd { font-family: inherit; font-size: 0.86em; background: var(--key); border: 1px solid #c9c9ce; border-bottom-width: 2px; border-radius: 5px; padding: 0.05em 0.45em; white-space: nowrap; }
+figure { margin: 1rem 0 1.25rem; page-break-inside: avoid; }
+figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; }
+figcaption { font-size: 0.86rem; color: var(--mute); margin-top: 0.5rem; line-height: 1.4; }
+figcaption b { color: var(--ink); font-weight: 600; }
+figure.narrow img { width: 70%; }
+figure + ol { columns: 2; column-gap: 2rem; font-size: 0.92rem; margin-top: -0.25rem; }
+figure + ol li { break-inside: avoid; padding-left: 0.1rem; }
+.figref { color: var(--tint); }
+aside { margin: 1rem 0 1.1rem; padding: 0.7rem 1rem; border-left: 3px solid var(--tint); background: var(--soft); border-radius: 0 6px 6px 0; page-break-inside: avoid; }
+aside b { display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--tint); margin-bottom: 0.15rem; }
+aside.caution { border-left-color: #c2410c; } aside.caution b { color: #c2410c; }
+.table { margin: 0.75rem 0 1.25rem; overflow-x: auto; page-break-inside: avoid; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mute); border-bottom: 2px solid var(--rule); }
+td:first-child { white-space: normal; }
+.legend { columns: 2; column-gap: 2rem; font-size: 0.92rem; }
+.legend li { break-inside: avoid; }
+.steps li { margin: 0.35rem 0; }
+.walk { counter-reset: step; }
+.walk h3 { counter-increment: step; }
+.walk h3::before { content: counter(step) ". "; color: var(--tint); }
+@media screen { body { background: #f6f6f8; } main { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 2rem auto; border-radius: 10px; } .cover { height: 60vh; } }
+@page { size: A4; margin: 18mm 17mm 20mm 17mm;
+        @bottom-right { content: counter(page); font: 9pt system-ui, -apple-system, Helvetica, sans-serif; color: #6e6e73; }
+        @bottom-left { content: "APSI Capture — User's Manual"; font: 9pt system-ui, -apple-system, Helvetica, sans-serif; color: #6e6e73; } }
+@page :first { @bottom-left { content: none; } @bottom-right { content: none; } }
+@media print { html { font-size: 10.5pt; } main { max-width: none; padding: 0; margin: 0; } a { color: inherit; } .figref { color: var(--tint); } }
+</style>
+</head>
+<body>
+<main>
+<section class="cover">
+  <h1>APSI Capture — User's Manual</h1>
+  <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
+  <p class="meta">For build 214 · 15 October 2026</p>
+</section>
+
+<div class="toc"><span class="toctitle">Contents</span><ul>
+<li><a href="#start-here">Start here</a><ul>
+<li><a href="#the-five-steps">The five steps</a></li>
+<li><a href="#batches">Batches</a></li>
+<li><a href="#ready">Ready</a></li>
+<li><a href="#where-your-work-is-kept">Where your work is kept</a></li>
+</ul>
+</li>
+<li><a href="#installing-and-updating">Installing and updating</a><ul>
+<li><a href="#install">Install</a></li>
+<li><a href="#updates">Updates</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#this-manual">This manual</a></li>
+</ul>
+</li>
+<li><a href="#the-window">The window</a><ul>
+<li><a href="#what-a-frame-shows">What a frame shows</a></li>
+</ul>
+</li>
+<li><a href="#a-match-start-to-finish">A match, start to finish</a><ul>
+<li><a href="#get-the-frames-in">Get the frames in</a></li>
+<li><a href="#mark-the-batch">Mark the batch</a></li>
+<li><a href="#work-inside-the-batch">Work inside the batch</a></li>
+<li><a href="#caption-them">Caption them</a></li>
+<li><a href="#correct-them">Correct them</a></li>
+<li><a href="#send-them">Send them</a></li>
+<li><a href="#back-to-the-game">Back to the game</a></li>
+</ul>
+</li>
+<li><a href="#getting-frames-in">Getting frames in</a><ul>
+<li><a href="#open-a-card-or-folder">Open a card or folder</a></li>
+<li><a href="#ingest-a-card">Ingest a card</a></li>
+<li><a href="#from-the-camera-over-ftp">From the camera over FTP</a></li>
+<li><a href="#tethered-over-usb">Tethered over USB</a></li>
+</ul>
+</li>
+<li><a href="#select">Select</a><ul>
+<li><a href="#the-contact-sheet">The contact sheet</a></li>
+<li><a href="#the-big-view">The big view</a></li>
+<li><a href="#marking-frames">Marking frames</a></li>
+<li><a href="#filtering-and-sorting">Filtering and sorting</a></li>
+<li><a href="#voice-notes">Voice notes</a></li>
+</ul>
+</li>
+<li><a href="#batches_1">Batches</a><ul>
+<li><a href="#mark-a-batch">Mark a batch</a></li>
+<li><a href="#work-inside-it">Work inside it</a></li>
+<li><a href="#send-it-and-start-the-next">Send it, and start the next</a></li>
+<li><a href="#change-or-clear-a-batch">Change or clear a batch</a></li>
+</ul>
+</li>
+<li><a href="#caption">Caption</a><ul>
+<li><a href="#codes">Codes</a></li>
+<li><a href="#the-assignment">The assignment</a></li>
+<li><a href="#working-through-a-run">Working through a run</a></li>
+<li><a href="#voice-notes_1">Voice notes</a></li>
+</ul>
+</li>
+<li><a href="#edit">Edit</a><ul>
+<li><a href="#the-sliders">The sliders</a></li>
+<li><a href="#auto">Auto</a></li>
+<li><a href="#crop-and-straighten">Crop and straighten</a></li>
+<li><a href="#before-and-after">Before and after</a></li>
+<li><a href="#working-across-a-run">Working across a run</a></li>
+</ul>
+</li>
+<li><a href="#transmit">Transmit</a></li>
+<li><a href="#setting-up">Setting up</a><ul>
+<li><a href="#ftp-destinations">FTP destinations</a></li>
+<li><a href="#xmp-templates">XMP templates</a></li>
+<li><a href="#code-replacement">Code replacement</a></li>
+<li><a href="#the-window_1">The window</a></li>
+</ul>
+</li>
+<li><a href="#reference">Reference</a><ul>
+<li><a href="#the-marks">The marks</a></li>
+<li><a href="#the-status-bar">The status bar</a></li>
+<li><a href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
+</ul>
+</li>
+<li><a href="#when-something-looks-wrong">When something looks wrong</a></li>
+</ul>
+</div></section>
+<h2 class="chapter" id="start-here">Start here</h2>
+<p class="lede">APSI Capture is the photographer's Mac app from Action Plus Sports Images. It takes the frames off the camera, lets you choose, caption and correct them, and sends the finished JPEGs to the agency — one app in place of Photo Mechanic, Lightroom and an FTP client.</p>
+<p>It works on the raw files (Canon CR3 and others) and never changes them. Everything you do is written beside each frame in a small sidecar file, and the JPEG that leaves is rendered from the raw with your crop, your corrections and the caption inside it.</p>
+<h3 id="the-five-steps">The five steps</h3>
+<p>Every shoot goes through the same steps, and each has a key — the first letter of the step.</p>
+<figure id="fig-loop"><img src="figures/loop.svg" alt="The loop a match goes round: frames in, a batch marked, captioned, corrected, sent, and back to the camera."><figcaption><b>Figure 1.</b> The loop a match goes round: frames in, a batch marked, captioned, corrected, sent, and back to the camera.</figcaption></figure>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Key</th>
+<th>What happens there</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frames in</td>
+<td><kbd>o</kbd> <kbd>i</kbd></td>
+<td>Open a card or folder, ingest a card onto the Mac, or let the camera send frames over FTP or USB</td>
+</tr>
+<tr>
+<td>Select</td>
+<td><kbd>s</kbd></td>
+<td>The contact sheet and the big view. Mark a batch, rate, tag, filter</td>
+</tr>
+<tr>
+<td>Caption</td>
+<td><kbd>c</kbd></td>
+<td>Say what is happening. The agency's wording is built around your words</td>
+</tr>
+<tr>
+<td>Edit</td>
+<td><kbd>e</kbd></td>
+<td>Crop, straighten, tone and colour, on the raw</td>
+</tr>
+<tr>
+<td>Transmit</td>
+<td><kbd>t</kbd></td>
+<td>Send the finished frames to the destination, or save them locally</td>
+</tr>
+</tbody>
+</table></div>
+<p>Caption and Edit can be swapped if you prefer to correct before you write: <strong>Window ▸ Select · Edit · Caption · Transmit</strong>. The dots that track each frame swap with them.</p>
+<h3 id="batches">Batches</h3>
+<p>The thing to understand about APSI Capture is that it is built around <strong>batches</strong>, because that is how a match is worked: you shoot for a while, pick out the eight frames that matter, get them on the wire, and go back to shooting. A batch is a colour. Press <kbd>1</kbd> on a frame and it is in the red batch; click the red swatch in the toolbar and the whole window — the sheet, the caption screen, the edit screen and Transmit — shows only that batch, so you can take it from the card to the agency in a couple of minutes without the rest of the card in the way. The second batch is yellow, the third green, and so on up to eight. <a href="#a-match-start-to-finish">A match, start to finish</a> walks through one.</p>
+<h3 id="ready">Ready</h3>
+<p>A frame is <strong>ready</strong> when it has been both captioned and edited. Transmit sends the ready frames and says what is missing from the others — <em>no caption</em>, <em>caption not confirmed</em>, <em>not edited</em>. Nothing stops you sending an unfinished frame when the whistle is close; the list just tells you what you are sending.</p>
+<h3 id="where-your-work-is-kept">Where your work is kept</h3>
+<p>Beside each frame, in a <kbd>.XMP</kbd> sidecar: the batch colour, rating, tag, the caption, and the correction. The raw file is never written to. The sidecars are the ones Photo Mechanic writes, so a card marked up in Photo Mechanic opens here with its colour classes intact, and the other way round.</p>
+<h2 class="chapter" id="installing-and-updating">Installing and updating</h2>
+<p class="lede">Install once from the DMG; after that the app updates itself.</p>
+<h3 id="install">Install</h3>
+<ol>
+<li>Open the <code>APSI-Capture-….dmg</code> you were sent and drag <strong>APSI Capture</strong> into <strong>Applications</strong>.</li>
+<li>Launch it from Applications, the Dock or Spotlight (<code>⌘ space</code>, type <em>APSI</em>). It is signed and notarised, so macOS opens it without a warning.</li>
+<li>The first time the app receives frames from a camera, macOS asks for <strong>Local Network</strong> permission. Allow it.</li>
+</ol>
+<p>The build you are running is in the window title (for example <em>0.1.212</em>) and under <strong>APSI Capture ▸ About APSI Capture</strong>. Quote it when you report a problem.</p>
+<h3 id="updates">Updates</h3>
+<p>The app checks for a newer build every hour while it is running and offers it with its release notes and an <strong>Install Update</strong> button. Click it: the new build downloads, replaces the app in Applications and relaunches. To check at any moment, choose <strong>APSI Capture ▸ Check for Updates…</strong>. You never need a new DMG after the first install.</p>
+<h3 id="requirements">Requirements</h3>
+<p>macOS 15 or later, on Apple silicon.</p>
+<h3 id="this-manual">This manual</h3>
+<p><strong>Help ▸ APSI Capture Manual</strong> (<kbd>⌘?</kbd>) opens this manual from inside the app, including with no signal at a ground. The latest copy is also at <a href="https://bkupbens.github.io/apsi-capture-releases/">bkupbens.github.io/apsi-capture-releases</a>, with the newest build.</p>
+<h2 class="chapter" id="the-window">The window</h2>
+<p class="lede">One window, four screens. The toolbar, the tabs and the status bar stay the same on all of them, so once you know the contact sheet you know where everything is.</p>
+<figure id="fig-window"><img src="figures/window.jpg" alt="The contact sheet, with the parts of the window that every screen shares."><figcaption><b>Figure 2.</b> The contact sheet, with the parts of the window that every screen shares.</figcaption></figure>
+<ol>
+<li><strong>Tabs</strong> — one per card or folder, with the number of frames and a dot for each batch marked in it. <kbd>+</kbd> opens another; <kbd>⌘W</kbd> closes one.</li>
+<li><strong>The four steps</strong> — Select, Caption, Edit, Transmit. Click, or press <kbd>s</kbd> <kbd>c</kbd> <kbd>e</kbd> <kbd>t</kbd>.</li>
+<li><strong>Sort</strong> — by capture time, filename, when the file was last modified, batch colour, rating, or a field of your choosing; the arrow flips the order.</li>
+<li><strong>All · Selected · Tagged · Untagged</strong> — narrows the window to the frames picked out, or to the tagged ones.</li>
+<li><strong>Batch swatches</strong> — click a colour to work inside that batch; click it again for everything. The hatched circle is the frames with no colour.</li>
+<li><strong>Stars</strong> — that rating or better.</li>
+<li><strong>Thumbnail size.</strong></li>
+<li><strong>The status bar</strong> — what the app is doing (<em>Scanning…</em>), the <strong>ftp</strong> and <strong>tethered</strong> lights, the loupe factor, and every key with what it does.</li>
+</ol>
+<h3 id="what-a-frame-shows">What a frame shows</h3>
+<figure id="fig-cell"><img src="figures/cell.jpg" alt="A frame on the contact sheet and the marks it carries."><figcaption><b>Figure 3.</b> A frame on the contact sheet and the marks it carries.</figcaption></figure>
+<ol>
+<li><strong>The batch colour</strong>, as a bar along the bottom.</li>
+<li><strong>Two dots</strong> — caption and edit, in the order your steps are in. Green is done, orange is started, none is untouched. Both green means ready.</li>
+<li><strong>A tick</strong> top-left: tagged.</li>
+<li><strong>An orange ring</strong>: the frame in hand. Frames picked with it have a dimmer ring and a tick top-right.</li>
+<li><strong>A microphone</strong> bottom-left: the camera recorded a voice note. Click it, or press <kbd>v</kbd>, to hear it.</li>
+</ol>
+<p>The same marks appear by the frame's name on the big view and the edit screen, beside the Confirm buttons on the caption screen, and in the Transmit list — a frame reads the same wherever you meet it.</p>
+<h2 class="chapter" id="a-match-start-to-finish">A match, start to finish</h2>
+<p class="lede">One batch, from the card to the agency. This is the rhythm the app is built for; the rest of the manual is the detail.</p>
+<p>You have been shooting for twenty minutes. There is a goal on the card and the desk wants it.</p>
+<div class="walk">
+<h3 id="get-the-frames-in">Get the frames in</h3>
+<p>Put the card in the reader and press <kbd>o</kbd>, then choose the card's <kbd>DCIM</kbd> folder. It opens as a tab; the count in the tab rises as the frames are read, and the sheet fills. Or, if the camera is sending over FTP or USB, the frames are already arriving in the open tab — see <a href="#getting-frames-in">Getting frames in</a>.</p>
+<h3 id="mark-the-batch">Mark the batch</h3>
+<p>Scroll to the goal. Click the first frame you want, then press <kbd>1</kbd>: a red bar appears under it, and a red dot appears on the tab. Arrow to the next and press <kbd>1</kbd> again. For a run, click the first, <kbd>⇧</kbd>-click the last, and press <kbd>1</kbd> once — every picked frame takes the colour.</p>
+<aside class="tip"><b>Tip</b> Hold the mouse button down on a frame on the big view for the loupe — that spot at 1:1 — to check focus before you commit a frame to the batch. Let go and it comes back.</aside>
+<h3 id="work-inside-the-batch">Work inside the batch</h3>
+<p>Click the <strong>red swatch</strong> in the toolbar. The sheet now shows only the red frames, and so will every other screen until you click the swatch again (<a class="figref" href="#fig-batch">figure 4</a>). The rest of the card is still there; it is just out of the way.</p>
+<figure id="fig-batch"><img src="figures/batch.jpg" alt="The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist."><figcaption><b>Figure 4.</b> The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist.</figcaption></figure>
+<h3 id="caption-them">Caption them</h3>
+<p>Press <kbd>c</kbd>. The first red frame is up with the caption screen beside it. Type what is happening — <em>scores the opening goal</em> — and watch <strong>Rendered caption</strong> build the agency's sentence around it: date, place, your words, venue, credit. Press <kbd>⌘⏎</kbd> (<strong>Confirm &amp; Next</strong>): the caption dot goes green and the next red frame is up. The counter by the name reads <em>2 / 8 red</em> — where you are in the batch. When a frame is the same moment with a different shirt, <kbd>⌃⌘C</kbd> copies the words and <kbd>⌃⌘V</kbd> pastes them.</p>
+<h3 id="correct-them">Correct them</h3>
+<p>Press <kbd>e</kbd>. Press <kbd>⌘U</kbd> for <strong>Auto</strong> tone, pull a slider if it needs it, press <kbd>r</kbd> and drag a crop. The edit dot goes green the moment you change anything. For the run, <kbd>⌥⌘C</kbd> copies the settings from this frame; select the rest in the filmstrip and <kbd>⌥⌘V</kbd> pastes them, or <kbd>⇧⌘S</kbd> syncs them to everything picked.</p>
+<h3 id="send-them">Send them</h3>
+<p>Press <kbd>t</kbd>. The list says <em>Ready</em> — the frames with both dots green — and <em>Not finished</em>, with why. Choose the destination and type the match in <strong>Subfolder</strong>, and click <strong>Send</strong>. Each frame shows its progress and then a tick; a frame the server refused shows the server's own words in red.</p>
+<h3 id="back-to-the-game">Back to the game</h3>
+<p>Click the red swatch again to see the whole card. The next batch is <kbd>2</kbd>, yellow.</p>
+</div>
+<aside class="note"><b>Note</b> Captions and corrections are saved as you make them. Nothing is lost by moving on, closing the tab, or quitting — what the app needs to know is when a caption is <em>confirmed</em>, which is what <kbd>⌘⏎</kbd> says.</aside>
+<h2 class="chapter" id="getting-frames-in">Getting frames in</h2>
+<p class="lede">Frames reach the app three ways: you open a card or folder, you ingest a card onto the Mac, or the camera sends them itself.</p>
+<h3 id="open-a-card-or-folder">Open a card or folder</h3>
+<ol>
+<li>Press <kbd>o</kbd>, or choose <strong>File ▸ Open…</strong> (<kbd>⌘O</kbd>).</li>
+<li>Pick the folder that holds the frames — a card's <kbd>DCIM</kbd> folder, or any folder on the Mac.</li>
+</ol>
+<p>It opens as a tab named after the folder. The count in the tab rises as the frames are read, and the colours and ratings already on them appear a moment later. Frames that land in that folder while it is open — from a card still being written, from the camera, from the desk — join the sheet by themselves.</p>
+<p><strong>File ▸ Open Recent</strong> lists the last folders; <kbd>⌘W</kbd> closes a tab. Several can be open at once.</p>
+<h3 id="ingest-a-card">Ingest a card</h3>
+<p>Ingest copies the card to a folder on the Mac and opens the copy — what you want before the card goes back in the camera.</p>
+<figure id="fig-ingest"><img src="figures/ingest.jpg" alt="The ingest sheet. Source, what to copy, where to, and the template that goes on every frame."><figcaption><b>Figure 5.</b> The ingest sheet. Source, what to copy, where to, and the template that goes on every frame.</figcaption></figure>
+<ol>
+<li><strong>From Card</strong> copies a card in the reader. <strong>From Camera</strong> reads the card in a body on a USB-C cable.</li>
+<li><strong>Source</strong> — the cards mounted. <strong>Rescan</strong> looks again; <strong>Select Folder…</strong> picks any folder.</li>
+<li><strong>Download images</strong> copies the frames (each one verified by size, so the card can be formatted afterwards). <strong>Incremental images only</strong> skips frames already ingested from this card — for a card you top up during the day. <strong>Locked images only</strong> takes just the frames you protected on the camera: cull in-camera, ingest the keepers.</li>
+<li><strong>Destination</strong> — the folder the copy goes into, named for the day (<strong>Today</strong>) or whatever you type.</li>
+<li><strong>Apply a template to everything ingested</strong> — the XMP template (headline, credit, source…) goes onto every frame as it lands, so nothing sits there with only a filename. <strong>Edit…</strong> changes it; <strong>Manage…</strong> opens the library.</li>
+</ol>
+<p>Press <kbd>i</kbd> or choose <strong>File ▸ Ingest…</strong> (<kbd>⇧⌘I</kbd>), set the sheet, and click <strong>Ingest</strong>. The progress line shows <em>moved of total</em>; the tab is usable while it copies.</p>
+<h3 id="from-the-camera-over-ftp">From the camera over FTP</h3>
+<p>Bodies with Ethernet or Wi‑Fi (Canon R1, R3, R5 and others) can send each frame to an FTP server as it is shot. The app <em>is</em> the server: it listens on the local network, and frames land straight in the open tab.</p>
+<ol>
+<li>Choose <strong>File ▸ Start Listening</strong>. The status bar's <strong>ftp</strong> light comes on and the File menu reads <em>Listening (FTP)</em>.</li>
+<li>On the camera, set the FTP destination:</li>
+</ol>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Server</td>
+<td>this Mac's address on the local network — shown beside the <strong>ftp</strong> light in the status bar while listening</td>
+</tr>
+<tr>
+<td>Port</td>
+<td><kbd>2121</kbd></td>
+</tr>
+<tr>
+<td>User</td>
+<td><kbd>apsi</kbd></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><kbd>capture</kbd></td>
+</tr>
+<tr>
+<td>Mode</td>
+<td>passive</td>
+</tr>
+</tbody>
+</table></div>
+<p>The first time, macOS asks for <strong>Local Network</strong> permission; allow it. Nothing else on the Mac is affected — the app only accepts connections and never opens the Mac to the internet. A frame reaches the sheet the moment it has finished arriving. <strong>File ▸ Stop Listening</strong> stops.</p>
+<h3 id="tethered-over-usb">Tethered over USB</h3>
+<p>Plug the body in. The status bar's <strong>tethered</strong> light comes on and the File menu reads <em>Listening (USB-C)</em>; each frame transfers as it is shot. <em>Locked images only</em> and <em>Incremental</em> apply here too, so a protected frame is the gesture that chooses one in the field.</p>
+<h2 class="chapter" id="select">Select</h2>
+<p class="lede">Select is where you decide what you are sending. Two views, and everything on the keyboard.</p>
+<h3 id="the-contact-sheet">The contact sheet</h3>
+<p><kbd>g</kbd> from anywhere. Every frame as a thumbnail with its name, time and marks (<a class="figref" href="#fig-window">figure 2</a>). The slider at the top right sets the size; the sheet handles cards of ten thousand frames without slowing down, so scroll freely.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>To</th>
+<th>Do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pick a frame</td>
+<td>Click it, or arrow to it (<kbd>↑</kbd> <kbd>↓</kbd> move by row)</td>
+</tr>
+<tr>
+<td>Pick a run</td>
+<td>Click the first, <kbd>⇧</kbd>-click the last — or <kbd>⇧</kbd>-arrow from the frame in hand</td>
+</tr>
+<tr>
+<td>Add or remove one</td>
+<td><kbd>⌘</kbd>-click</td>
+</tr>
+<tr>
+<td>Pick everything shown</td>
+<td><kbd>⌘A</kbd>; <kbd>⇧⌘A</kbd> picks none</td>
+</tr>
+</tbody>
+</table></div>
+<p>A mark applies to every picked frame at once, so pick a run and press the key.</p>
+<h3 id="the-big-view">The big view</h3>
+<p><kbd>s</kbd>, <kbd>space</kbd>, <kbd>return</kbd>, or double-click a thumbnail: one frame filling the window, sharp enough to judge focus. Arrow keys move through the frames and the sheet follows. <kbd>esc</kbd> or <kbd>g</kbd> goes back.</p>
+<figure id="fig-view"><img src="figures/view.jpg" alt="The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar."><figcaption><b>Figure 6.</b> The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar.</figcaption></figure>
+<p><strong>Looking closer.</strong> Hold the mouse button down anywhere on the picture for the <strong>loupe</strong> — that spot at the factor on the loupe slider in the status bar, which <kbd>⌘+</kbd>, <kbd>⌘−</kbd> and <kbd>⌘0</kbd> change. Let go and it comes back. Press <kbd>z</kbd> for <strong>1:1</strong>: the whole frame at one screen pixel per sensor pixel, drag to pan, <kbd>z</kbd> or <kbd>esc</kbd> to leave.</p>
+<p><strong>Before and after.</strong> <kbd>\</kbd> shows the frame as it came off the camera; press it again for your version.</p>
+<h3 id="marking-frames">Marking frames</h3>
+<p>Three kinds of mark. All are in the <strong>Metadata</strong> menu and on the right-click menu of any thumbnail, and all travel with the frame in its sidecar.</p>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Keys</th>
+<th>Shows as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Batch colour</td>
+<td><kbd>1</kbd> to <kbd>8</kbd>; <kbd>0</kbd> clears</td>
+<td>a bar along the bottom of the thumbnail</td>
+</tr>
+<tr>
+<td>Rating</td>
+<td><kbd>⌃1</kbd> to <kbd>⌃5</kbd>; <kbd>⌃0</kbd> clears</td>
+<td>stars, in the Transmit list and the filters</td>
+</tr>
+<tr>
+<td>Tag</td>
+<td><kbd>p</kbd> (or <kbd>⌘T</kbd>) toggles</td>
+<td>a tick top-left</td>
+</tr>
+</tbody>
+</table></div>
+<p>The eight colours, in key order: red, yellow, green, blue, magenta, cyan, brown, grey — the same eight as Photo Mechanic.</p>
+<h3 id="filtering-and-sorting">Filtering and sorting</h3>
+<p>The toolbar narrows the window; what it shows is what every screen then works on, Transmit included.</p>
+<ul>
+<li><strong>Batch swatches</strong> — click a colour to see only that batch; click another to add it; <kbd>⌥</kbd>-click for only that one; click again to clear. The hatched circle is the frames with no colour.</li>
+<li><strong>Stars</strong> — that rating or better.</li>
+<li><strong>All · Selected · Tagged · Untagged</strong> — the frames picked out, or the tagged ones.</li>
+<li><strong>Sort</strong> — capture time, filename, when the file was last modified, batch colour, rating, or a field from the file (ISO, file size…); the arrow flips the order.</li>
+</ul>
+<aside class="note"><b>Note</b> If a screen says <em>Nothing shown</em>, a filter is excluding everything — the swatches and stars apply on every screen.</aside>
+<h3 id="voice-notes">Voice notes</h3>
+<p>A frame with a sound memo recorded on the camera shows a microphone badge. Click it, or press <kbd>v</kbd> on the frame, to hear it; press again to stop.</p>
+<h2 class="chapter" id="batches_1">Batches</h2>
+<p class="lede">A batch is a colour, and the colour is how a few frames are taken through the whole workflow together, ahead of the rest of the card.</p>
+<h3 id="mark-a-batch">Mark a batch</h3>
+<p>Pick the frames and press a number: <kbd>1</kbd> for red, <kbd>2</kbd> for yellow, up to <kbd>8</kbd>. The bar under each thumbnail shows the colour, the tab shows a dot for every batch that exists, and the status bar counts them — <em>red 8 · yellow 3</em>.</p>
+<h3 id="work-inside-it">Work inside it</h3>
+<p>Click the batch's <strong>swatch</strong> in the toolbar (<a class="figref" href="#fig-batch">figure 4</a>). The window now holds only that batch:</p>
+<ul>
+<li>the contact sheet and the big view show those frames, and the arrow keys move within them;</li>
+<li>the caption screen's <strong>Confirm &amp; Next</strong> and <strong>Next →</strong> move to the next frame <em>in the batch</em>, and the counter by the name says where you are — <em>3 / 8 red</em>;</li>
+<li>the edit screen's filmstrip is the batch, so <strong>Sync Settings to Selection</strong> reaches exactly those frames;</li>
+<li>Transmit's <em>Ready</em> and <em>Not finished</em> are the batch, and <strong>Send</strong> sends it.</li>
+</ul>
+<p>Click the swatch again for the whole card.</p>
+<h3 id="send-it-and-start-the-next">Send it, and start the next</h3>
+<p>When the batch is on the wire, click the swatch off, go back to shooting, and mark the next batch with the next number. Two batches can be shown together — click both swatches — and <kbd>⌥</kbd>-click a swatch shows only that one.</p>
+<aside class="why"><b>Why</b> A match is not captioned at the end; it is sent in pieces while it is still being played, and every piece has to be found again among thousands of frames. A colour is one keypress and survives everything: it is in the sidecar, Photo Mechanic reads it as a colour class, and the desk sees it on the frames it receives.</aside>
+<h3 id="change-or-clear-a-batch">Change or clear a batch</h3>
+<p>Press another number to move a frame to a different batch; <kbd>0</kbd> clears it. Sort by <strong>Batch colour</strong> to see the batches side by side.</p>
+<h2 class="chapter" id="caption">Caption</h2>
+<p class="lede">You type what is happening; the app writes the caption the agency wants around it.</p>
+<p><kbd>c</kbd> opens the screen on the frame in hand, with the big view beside it (<a class="figref" href="#fig-caption">figure 7</a>).</p>
+<figure id="fig-caption"><img src="figures/caption.jpg" alt="The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath."><figcaption><b>Figure 7.</b> The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath.</figcaption></figure>
+<ol>
+<li><strong>Caption</strong> — the words that are yours: <em>scores the opening goal</em>, <em>celebrates with</em>. Codes are expanded as you type.</li>
+<li><strong>Rendered caption</strong> — the sentence exactly as it will be written into the file: date, city, your words, venue, credit. Correct a field below and it follows. The counter is the agency's limit.</li>
+<li><strong>Confirm &amp; Next</strong> (<kbd>⌘⏎</kbd>) marks this caption done and moves on — the key you press most. <strong>Confirm</strong> (<kbd>⌘S</kbd>) marks it done and stays. Once a caption is confirmed the button reads <strong>Next →</strong>, and <kbd>⌘⏎</kbd> simply moves on.</li>
+<li><strong>The two dots</strong> — where the frame stands. Orange on the caption dot means words typed but not confirmed.</li>
+<li><strong>Where you are in the batch</strong> — <em>2 / 4 red</em>.</li>
+<li><strong>Copy</strong> and <strong>Paste</strong> (<kbd>⌃⌘C</kbd>, <kbd>⌃⌘V</kbd>) carry the words from one frame to the next.</li>
+<li><strong>Assignment</strong> — set once per tab and inherited by every frame in it.</li>
+</ol>
+<p><strong>← Back</strong> and <strong>Next →</strong> (<kbd>⌘[</kbd>, <kbd>⌘]</kbd>) move without confirming. Nothing is lost by moving on: the words are saved as you type them. What the app needs to know is when a caption is <em>finished</em>, which is what confirming says — and it is what Transmit reports as <em>caption not confirmed</em> until you do.</p>
+<h3 id="codes">Codes</h3>
+<p>Type a code between full stops — <kbd>.81.</kbd> — and it becomes the player: <em>Oscar Piastri (81) of Australia and McLaren</em>. The lists come from code sheets — a squad list, an entry list, one you keep yourself — loaded under <strong>Metadata ▸ Code Replacement…</strong> (see <a href="#setting-up">Setting up</a>). A code that no sheet knows is left as typed.</p>
+<h3 id="the-assignment">The assignment</h3>
+<p>Headline, event, location, city and country, creator, credit, source, copyright and usage terms. Set once for the game — by the XMP template at ingest, or typed here — and every frame in the tab inherits it. Two commands push a template over frames already here:</p>
+<ul>
+<li><strong>Metadata ▸ Apply XMP to All Frames…</strong> (<kbd>⇧⌘T</kbd>) — for the frames that came in before the headline was right.</li>
+<li><strong>Metadata ▸ Apply XMP to Selected…</strong> (<kbd>⌥⌘T</kbd>) — a different template on a handful: the photographer shooting for two agencies sends one frame of a sequence to each, with its own credit and source.</li>
+</ul>
+<p>Field limits are shown as they are approached; the agency's systems truncate silently, so the counter is worth a glance.</p>
+<h3 id="working-through-a-run">Working through a run</h3>
+<p>A run from the same passage of play is the same sentence with a different number on the shirt. Confirm the first, <strong>Copy</strong>, <kbd>⌘⏎</kbd> to the next, <strong>Paste</strong>, <kbd>⌘⏎</kbd> — four keys a frame. <strong>Metadata ▸ Mark Captioned</strong> (<kbd>⌘K</kbd>) confirms the frame in hand from any screen.</p>
+<h3 id="voice-notes_1">Voice notes</h3>
+<p>If the camera recorded a sound memo, the microphone button plays it (<kbd>v</kbd>), so you can caption from what you said at the time.</p>
+<h2 class="chapter" id="edit">Edit</h2>
+<p class="lede">Crop, straighten, tone and colour — on the raw, as numbers beside the frame. The JPEG that leaves is rendered from those numbers, so what you judge here is what the agency gets.</p>
+<p><kbd>e</kbd> opens the frame in hand on the edit screen (<a class="figref" href="#fig-edit">figure 8</a>).</p>
+<figure id="fig-edit"><img src="figures/edit.jpg" alt="The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below."><figcaption><b>Figure 8.</b> The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below.</figcaption></figure>
+<ol>
+<li><strong>Histogram</strong> of the frame as corrected.</li>
+<li><strong>The frame's name and its two dots.</strong> The edit dot goes green the moment anything changes.</li>
+<li><strong>Crop &amp; straighten</strong> (<kbd>r</kbd>) — see below.</li>
+<li><strong>Presets, Auto, Copy, Paste</strong> — the presets menu applies a saved set of sliders or saves the current one under a name; <strong>Auto</strong> sets the tone; <strong>Copy</strong> and <strong>Paste</strong> carry the sliders from frame to frame.</li>
+<li><strong>Fine control</strong> halves every slider's range — ±50, exposure ±2.5 stops — so the same travel of the hand is a smaller change. The numbers mean the same; only the reach changes. Auto respects it.</li>
+<li><strong>The sliders</strong>, in groups. Double-click a name to put that slider back.</li>
+<li><strong>Reset</strong> puts the whole frame back.</li>
+<li><strong>The filmstrip</strong> — the frames in the window (the batch, if one is on). Arrow keys move; click a run or <kbd>⌘</kbd>-click to add.</li>
+<li><strong>Paste settings</strong> onto every frame picked in the filmstrip; <strong>All</strong> and <strong>None</strong> pick them.</li>
+</ol>
+<h3 id="the-sliders">The sliders</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Controls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White balance</td>
+<td>Temp, Tint — and <strong>Auto</strong> (<kbd>⇧⌘U</kbd>)</td>
+</tr>
+<tr>
+<td>Tone</td>
+<td>Exposure, Contrast, Highlights, Shadows, Whites, Blacks — and <strong>Auto</strong> (<kbd>⌘U</kbd>)</td>
+</tr>
+<tr>
+<td>Presence</td>
+<td>Texture, Clarity, Dehaze, Vibrance, Saturation</td>
+</tr>
+<tr>
+<td>Sharpening</td>
+<td>Amount; open the group for Radius, Detail, Masking</td>
+</tr>
+<tr>
+<td>Noise reduction</td>
+<td>Luminance, Colour; open the group for their Detail controls</td>
+</tr>
+</tbody>
+</table></div>
+<p>They are Lightroom's controls, with Lightroom's names, ranges and defaults.</p>
+<h3 id="auto">Auto</h3>
+<p><kbd>⌘U</kbd> sets exposure, contrast, highlights, shadows, whites, blacks and vibrance from the picture; <kbd>⇧⌘U</kbd> sets the white balance. It is a starting point: look, and pull back what it overdid.</p>
+<aside class="why"><b>Why</b> Auto reads a small sample of the frame as it arrived and answers one question per slider. Exposure is set from the lit part of the frame rather than the middle, because half a sports frame is shaded crowd; highlights come down only for pixels that are actually clipped, so a sunlit frame full of white shirts is not darkened for them. Percentiles, not extremes: one specular highlight off a wet shirt does not decide the exposure of a match.</aside>
+<h3 id="crop-and-straighten">Crop and straighten</h3>
+<p>Press <kbd>r</kbd> on any screen. The frame opens on the edit screen with the crop box over it (<a class="figref" href="#fig-crop">figure 9</a>).</p>
+<figure id="fig-crop"><img src="figures/crop.jpg" alt="Crop and straighten. The box stays put; the photograph moves behind it."><figcaption><b>Figure 9.</b> Crop and straighten. The box stays put; the photograph moves behind it.</figcaption></figure>
+<ol>
+<li><strong>Aspect</strong> — free, the original, square, 3:2 or 4:3.</li>
+<li><strong>Angle</strong> — or drag outside the box to straighten.</li>
+<li><strong>Output</strong> — the pixel size of the result, on screen the whole time.</li>
+<li><strong>The handles</strong> resize the box.</li>
+<li><strong>Reset</strong> puts the crop back; <strong>Close</strong> keeps it.</li>
+</ol>
+<p><strong>Photo moves behind the box</strong> is Lightroom's interaction, and the default: drag inside to move the picture, outside to straighten. <kbd>x</kbd> turns the box on its side; <kbd>return</kbd> keeps the crop, <kbd>esc</kbd> puts it back. Nothing is dimmed — what is being cut away stays at full brightness, which is how you decide whether to cut it. A thirds grid shows while framing and a fine grid while straightening, since finding level is the hard part. Straightening shrinks the box to keep it inside the photograph.</p>
+<h3 id="before-and-after">Before and after</h3>
+<p><kbd>\</kbd> shows the frame as it came off the camera; press it again for your version.</p>
+<h3 id="working-across-a-run">Working across a run</h3>
+<p>Correct one frame, then push the settings out:</p>
+<ul>
+<li><strong>Copy Settings</strong> (<kbd>⌥⌘C</kbd>) and <strong>Paste Settings</strong> (<kbd>⌥⌘V</kbd>) — one frame to another.</li>
+<li><strong>Sync Settings to Selection</strong> (<kbd>⇧⌘S</kbd>) — the frame in hand to every frame picked with it. Pick the run in the filmstrip (click, <kbd>⇧</kbd>-click, or <strong>All</strong>); the frame you corrected stays the primary.</li>
+</ul>
+<p>The working method the filmstrip is built for: start from a preset, fine-tune one frame, paste those settings onto the others, then tweak each one.</p>
+<h2 class="chapter" id="transmit">Transmit</h2>
+<p class="lede">Which frames are finished, what is missing from the ones that are not, where they go, and the button that sends them.</p>
+<p><kbd>t</kbd> opens the screen (<a class="figref" href="#fig-transmit">figure 10</a>). The frames shown are the frames in the window — if a batch is on, the batch.</p>
+<figure id="fig-transmit"><img src="figures/transmit.jpg" alt="The Transmit screen, filtered to the red batch: two ready, two not, and why."><figcaption><b>Figure 10.</b> The Transmit screen, filtered to the red batch: two ready, two not, and why.</figcaption></figure>
+<ol>
+<li><strong>Ready to send</strong> — every frame with both dots green: the dots, the colour bar, the outgoing filename and the rendered caption.</li>
+<li><strong>Not finished</strong>, with the reason: <em>no caption</em>, <em>caption not confirmed</em>, <em>not edited</em>.</li>
+<li><strong>Ready</strong> — how many of the frames shown will go.</li>
+<li><strong>Preset</strong> — everything in the panel below, remembered under a name. <strong>Save as…</strong>, <strong>Update</strong>, <strong>Delete</strong>.</li>
+<li><strong>Destination</strong> — <strong>Save locally</strong> renders the JPEGs and sends nothing, or one of your FTP destinations; <strong>Manage…</strong> opens the list.</li>
+<li><strong>Subfolder</strong> — the match, made on the server if it is not there. Typed each game, and deliberately not part of the preset.</li>
+<li><strong>Keep a copy</strong> — a JPEG kept on this Mac as well: beside the photographs in a subfolder you name, so it travels with the frames, or in a folder of its own.</li>
+<li><strong>Rename to</strong> — a pattern for the outgoing name. <strong>Patterns</strong> lists the usual ones; <code>{name}</code> is the name on the card, <code>{seq:4}</code> numbers from the start you set (<kbd>0007</kbd>), <code>{date}</code> and <code>{time}</code> take a format, anything else is itself. The line beneath shows what the first frame will be called.</li>
+<li><strong>The file</strong> — always a JPEG, rendered from the raw. <strong>Resize to fit</strong> sets the long edge in pixels (<strong>don't enlarge</strong> for frames already smaller). <strong>Limit the file size</strong> sets a ceiling in MB: quality comes down first, and if that is not enough the frame is made smaller until it fits — better a smaller frame than one the drop refuses. <strong>Quality</strong> is the JPEG quality.</li>
+</ol>
+<p><strong>Send</strong> — <strong>Save</strong>, when the destination is <em>Save locally</em> — is at the foot of the panel and sends the ready frames; <strong>Include the unfinished ones</strong> sends everything shown — a photographer with four minutes to the whistle sends what is on the card, and the list says what it is sending. Progress is per frame; <strong>Stop</strong> stops. A sent frame shows a tick; a frame the server refused shows the server's own words in red, so a frame that did not go is never silent.</p>
+<p>Every JPEG leaves with the caption and the assignment written into the file itself — IPTC and XMP — along with the camera and lens. Nothing is written beside the raw: the JPEG is made in memory, goes up the wire and is let go, which is why sending the same frame again gives the same picture.</p>
+<aside class="note"><b>Note</b> The ready count and the lists follow the toolbar. If Transmit says <em>Nothing shown</em>, a swatch or the stars are filtering everything out.</aside>
+<h2 class="chapter" id="setting-up">Setting up</h2>
+<p class="lede">Done once, or once a season: where frames are sent, what goes onto them at ingest, and the code sheets.</p>
+<h3 id="ftp-destinations">FTP destinations</h3>
+<p><strong>File ▸ FTP Destinations…</strong>, or <strong>Manage…</strong> on the Transmit screen. Each destination is a host, a login and a folder kept under a name — <em>Imagn</em>, <em>Action Plus</em>, <em>the club</em> — so the choice at the moment of sending is the name, not seven fields.</p>
+<figure id="fig-destinations"><img src="figures/destinations.jpg" alt="FTP Destinations. The one in bold is the one Transmit opens on."><figcaption><b>Figure 11.</b> FTP Destinations. The one in bold is the one Transmit opens on.</figcaption></figure>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>What the Transmit screen shows</td>
+</tr>
+<tr>
+<td>Host, port</td>
+<td>The server; port <kbd>21</kbd> unless told otherwise</td>
+</tr>
+<tr>
+<td>User, password</td>
+<td>The login. The password goes into the Mac's keychain, not into any file</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>The folder on the server; the subfolder is made under it</td>
+</tr>
+<tr>
+<td>Passive mode</td>
+<td>On for almost every server</td>
+</tr>
+<tr>
+<td>FTP with TLS</td>
+<td>Encrypted, where the server supports it</td>
+</tr>
+<tr>
+<td>Retries, timeout</td>
+<td>How many times a frame is tried again, and how long to wait for the server</td>
+</tr>
+<tr>
+<td>Connections</td>
+<td>How many frames go up at once. Agencies differ: several refuse a fifth login</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>New…</strong>, <strong>Edit…</strong>, <strong>Duplicate</strong> and <strong>Remove</strong> manage the list; <strong>Use for Transmit</strong> makes one the default. The login is kept open between frames, which on a stadium connection is the difference between a minute and five.</p>
+<h3 id="xmp-templates">XMP templates</h3>
+<p><strong>Metadata ▸ XMP Templates…</strong>. A template is the assignment — headline, event, location, creator, credit, source, copyright, usage terms — kept as a file, so that when an agency rewrites its rights wording the template follows without being rebuilt by hand.</p>
+<figure id="fig-templates"><img src="figures/templates.jpg" alt="XMP Templates. What goes onto frames at ingest; the one in bold is chosen in the ingest sheet."><figcaption><b>Figure 12.</b> XMP Templates. What goes onto frames at ingest; the one in bold is chosen in the ingest sheet.</figcaption></figure>
+<ul>
+<li><strong>Import…</strong> reads a Photo Mechanic <kbd>.XMP</kbd> template as it is.</li>
+<li><strong>New…</strong> and <strong>Edit…</strong> open the editor; <strong>Reload All</strong> re-reads the files.</li>
+<li><strong>Use for Ingest</strong> makes one the ingest sheet's choice.</li>
+</ul>
+<p>A template without a caption of its own leaves the caption to be built as a sentence around your words.</p>
+<h3 id="code-replacement">Code replacement</h3>
+<p><strong>Metadata ▸ Code Replacement…</strong>. The sheets that turn <kbd>.81.</kbd> into a name.</p>
+<figure id="fig-codes"><img src="figures/codes.jpg" alt="Code Replacement. The files consulted, and the two codes that mean different things in different files."><figcaption><b>Figure 13.</b> Code Replacement. The files consulted, and the two codes that mean different things in different files.</figcaption></figure>
+<ul>
+<li><strong>Add…</strong> a file. Photo Mechanic's tab-separated sheets, an entry list with arrows, and files with equals signs are all read; headings and blank lines are ignored. Several can be on at once.</li>
+<li><strong>Reload the files when they change</strong> — for a sheet somebody else keeps.</li>
+<li><strong>Code marker</strong> — the character on each side of a code; a full stop by default.</li>
+<li><strong>When a code is not found</strong> — left as typed, or whatever you put here.</li>
+<li>When two sheets disagree about a code, the window says so: the file read last wins, so switch one off or edit it.</li>
+</ul>
+<h3 id="the-window_1">The window</h3>
+<ul>
+<li><strong>Window ▸ Panels on the Left</strong> puts the caption and edit panels on the left, for a second screen that sits that way.</li>
+<li><strong>Window ▸ Select · Caption · Edit · Transmit</strong> and <strong>Select · Edit · Caption · Transmit</strong> set the order of the steps. The two dots follow the order.</li>
+</ul>
+<h2 class="chapter" id="reference">Reference</h2>
+<h3 id="the-marks">The marks</h3>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Where</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two dots — caption, then edit (they swap if Edit comes before Caption in your order)</td>
+<td>under the thumbnail; by the name on the big view and the edit screen; by the Confirm buttons; in the Transmit list</td>
+<td>green done, orange started, none untouched. Caption: orange is words typed but not confirmed. Edit: green is a correction made. Both green is ready</td>
+</tr>
+<tr>
+<td>Colour bar</td>
+<td>along the bottom of the thumbnail; a swatch by the name on the caption and edit screens</td>
+<td>the batch: red, yellow, green, blue, magenta, cyan, brown, grey</td>
+</tr>
+<tr>
+<td>Tick, top-left of the picture</td>
+<td>thumbnail</td>
+<td>tagged (<kbd>p</kbd>)</td>
+</tr>
+<tr>
+<td>Orange ring</td>
+<td>thumbnail</td>
+<td>the frame in hand; a dimmer ring with a tick top-right is picked with it</td>
+</tr>
+<tr>
+<td>Microphone, bottom-left</td>
+<td>thumbnail, big view, caption screen</td>
+<td>a voice note; click or <kbd>v</kbd> to play, a square while it plays</td>
+</tr>
+<tr>
+<td><em>n / m red</em></td>
+<td>caption and edit screens</td>
+<td>where the frame sits in its batch</td>
+</tr>
+<tr>
+<td>Tick in the Transmit list</td>
+<td>Transmit</td>
+<td>sent</td>
+</tr>
+<tr>
+<td>Red text in the Transmit list</td>
+<td>Transmit</td>
+<td>the server refused it, in its own words</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="the-status-bar">The status bar</h3>
+<p>Left to right: what the app is doing (<em>Scanning…</em>, or the frame in hand and the batch counts), the <strong>ftp</strong> and <strong>tethered</strong> lights, how many frames are ready, the loupe slider and factor, and every key with what it does. Press a key while a text field has the keyboard and the field gets it: click a photograph to take the keys back.</p>
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+<p>Single letters work whenever a text field does not have the keyboard.</p>
+<h4 id="screens-and-views">Screens and views</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>o</kbd> <kbd>⌘O</kbd></td>
+<td>Open a card or folder</td>
+</tr>
+<tr>
+<td><kbd>i</kbd> <kbd>⇧⌘I</kbd></td>
+<td>Ingest…</td>
+</tr>
+<tr>
+<td><kbd>s</kbd> <kbd>c</kbd> <kbd>e</kbd> <kbd>t</kbd></td>
+<td>Select (the big view), Caption, Edit, Transmit</td>
+</tr>
+<tr>
+<td><kbd>g</kbd></td>
+<td>The contact sheet</td>
+</tr>
+<tr>
+<td><kbd>space</kbd> <kbd>return</kbd></td>
+<td>Open or close the big view</td>
+</tr>
+<tr>
+<td>double-click</td>
+<td>The big view on that frame</td>
+</tr>
+<tr>
+<td><kbd>z</kbd></td>
+<td>1:1 on and off</td>
+</tr>
+<tr>
+<td>hold the mouse</td>
+<td>The loupe</td>
+</tr>
+<tr>
+<td><kbd>⌘+</kbd> <kbd>⌘−</kbd> <kbd>⌘0</kbd></td>
+<td>Loupe closer, wider, 1:1</td>
+</tr>
+<tr>
+<td><kbd>\</kbd></td>
+<td>Before / after</td>
+</tr>
+<tr>
+<td><kbd>esc</kbd></td>
+<td>Leave 1:1, then the big view; put a crop back</td>
+</tr>
+<tr>
+<td><kbd>⌘W</kbd></td>
+<td>Close the tab</td>
+</tr>
+<tr>
+<td><kbd>⌘?</kbd></td>
+<td>This manual</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="moving-and-picking">Moving and picking</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd></td>
+<td>Move through the frames; rows on the sheet</td>
+</tr>
+<tr>
+<td><kbd>⇧</kbd>+arrow, <kbd>⇧</kbd>-click</td>
+<td>Grow a run, pick a run</td>
+</tr>
+<tr>
+<td><kbd>⌘</kbd>-click</td>
+<td>Add or remove one</td>
+</tr>
+<tr>
+<td><kbd>⌘A</kbd> <kbd>⇧⌘A</kbd></td>
+<td>Pick everything shown; pick none</td>
+</tr>
+<tr>
+<td><kbd>⌘[</kbd> <kbd>⌘]</kbd></td>
+<td>Previous frame, next frame</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="marks">Marks</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>1</kbd> … <kbd>8</kbd>, <kbd>0</kbd></td>
+<td>Batch colour; clear it</td>
+</tr>
+<tr>
+<td><kbd>⌃1</kbd> … <kbd>⌃5</kbd>, <kbd>⌃0</kbd></td>
+<td>Rating; clear it</td>
+</tr>
+<tr>
+<td><kbd>p</kbd> <kbd>⌘T</kbd></td>
+<td>Tag or untag</td>
+</tr>
+<tr>
+<td><kbd>⌘K</kbd></td>
+<td>Mark captioned</td>
+</tr>
+<tr>
+<td><kbd>v</kbd></td>
+<td>Play the voice note</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="caption_1">Caption</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>⌘⏎</kbd></td>
+<td>Confirm &amp; Next</td>
+</tr>
+<tr>
+<td><kbd>⌘S</kbd></td>
+<td>Confirm</td>
+</tr>
+<tr>
+<td><kbd>⌃⌘C</kbd> <kbd>⌃⌘V</kbd></td>
+<td>Copy the caption, paste the caption</td>
+</tr>
+<tr>
+<td><kbd>⇧⌘T</kbd></td>
+<td>Apply XMP to All Frames…</td>
+</tr>
+<tr>
+<td><kbd>⌥⌘T</kbd></td>
+<td>Apply XMP to Selected…</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="edit_1">Edit</h4>
+<div class="table"><table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><kbd>r</kbd> <kbd>⌘R</kbd></td>
+<td>Crop and straighten</td>
+</tr>
+<tr>
+<td><kbd>x</kbd></td>
+<td>Turn the crop on its side</td>
+</tr>
+<tr>
+<td><kbd>⌘U</kbd> <kbd>⇧⌘U</kbd></td>
+<td>Auto tone, auto white balance</td>
+</tr>
+<tr>
+<td><kbd>⌥⌘C</kbd> <kbd>⌥⌘V</kbd></td>
+<td>Copy settings, paste settings</td>
+</tr>
+<tr>
+<td><kbd>⇧⌘S</kbd></td>
+<td>Sync settings to selection</td>
+</tr>
+</tbody>
+</table></div>
+<h2 class="chapter" id="when-something-looks-wrong">When something looks wrong</h2>
+<div class="table"><table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>Why</th>
+<th>Do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A key does nothing</td>
+<td>A text field has the keyboard</td>
+<td>Click a photograph, then press the key</td>
+</tr>
+<tr>
+<td>A frame is not in the sheet yet</td>
+<td>It is still arriving; a file is left alone until it has stopped growing</td>
+<td>Wait a moment. Over FTP the frame appears the instant the camera finishes sending it</td>
+</tr>
+<tr>
+<td><em>Nothing shown</em></td>
+<td>A swatch, the stars or the marking filter are excluding everything</td>
+<td>Click the ringed swatch off, or set the stars back</td>
+</tr>
+<tr>
+<td>Transmit says <em>caption not confirmed</em></td>
+<td>Words were typed but <kbd>⌘⏎</kbd> or <kbd>⌘S</kbd> was never pressed</td>
+<td>Open the frame, press <kbd>⌘S</kbd> — or <kbd>⌘K</kbd> from anywhere</td>
+</tr>
+<tr>
+<td>Transmit says <em>not edited</em></td>
+<td>No correction has been made</td>
+<td>Press <kbd>e</kbd>, then <kbd>⌘U</kbd>, or <strong>Include the unfinished ones</strong></td>
+</tr>
+<tr>
+<td>A frame shows red text in the Transmit list</td>
+<td>The server refused it, and those are its words</td>
+<td>Read them: wrong folder, wrong login, a full disk. Fix, then <strong>Send</strong> again — only the refused frames go</td>
+</tr>
+<tr>
+<td>No frames arrive from the camera</td>
+<td>The Mac is not listening, or is not on the same network, or macOS has not been allowed to use the local network</td>
+<td><strong>File ▸ Start Listening</strong>; check the status bar's ftp light and the address beside it; allow Local Network in System Settings ▸ Privacy &amp; Security</td>
+</tr>
+<tr>
+<td>The edit screen looks soft next to 1:1</td>
+<td>The edit view is a fitted preview; <kbd>z</kbd> is the sensor's pixels</td>
+<td>Judge sharpness at 1:1 or with the loupe</td>
+</tr>
+<tr>
+<td>No update is offered</td>
+<td>The app checks once an hour</td>
+<td><strong>APSI Capture ▸ Check for Updates…</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>When you report a problem, quote the build from the window title or <strong>About APSI Capture</strong>, and say which card and which frame.</p>
+</main>
+</body>
+</html>
