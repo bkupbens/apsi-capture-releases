@@ -12,7 +12,7 @@ body { margin: 0; color: var(--ink); background: #fff;
        font-family: system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
        line-height: 1.5; font-size: 1rem; -webkit-font-smoothing: antialiased; }
 main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-.cover { height: 92vh; display: flex; flex-direction: column; justify-content: flex-end; page-break-after: always; }
+.cover { height: 70vh; display: flex; flex-direction: column; justify-content: center; page-break-after: always; }
 .cover h1 { font-size: 3rem; line-height: 1.1; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
 .cover .sub { font-size: 1.25rem; color: var(--mute); margin: 0 0 3rem; }
 .cover .meta { color: var(--mute); font-size: 0.9rem; }
@@ -60,7 +60,7 @@ td:first-child { white-space: normal; }
 .walk h3 { counter-increment: step; }
 .walk h3::before { content: counter(step) ". "; color: var(--tint); }
 @media screen and (max-width: 520px) { .cover h1 { font-size: 2rem; } h2.chapter { font-size: 1.45rem; } .cover { height: auto; padding-top: 2rem; } }
-@media screen { body { background: #f6f6f8; } main { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 2rem auto; border-radius: 10px; } .cover { height: 60vh; } }
+@media screen { body { background: #f6f6f8; } main { background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin: 2rem auto; border-radius: 10px; } .cover { height: 50vh; } }
 @page { size: A4; margin: 18mm 17mm 20mm 17mm;
         @bottom-right { content: counter(page); font: 9pt system-ui, -apple-system, Helvetica, sans-serif; color: #6e6e73; }
         @bottom-left { content: "APSI Capture — User's Manual"; font: 9pt system-ui, -apple-system, Helvetica, sans-serif; color: #6e6e73; } }
@@ -73,7 +73,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 218 · 15 October 2026</p>
+  <p class="meta">For build 219 · 15 October 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
