@@ -3,6 +3,22 @@
     <channel>
         <title>APSI Capture</title>
         <item>
+            <title>0.1.248</title>
+            <pubDate>Mon, 19 Oct 2026 06:52:54 -0700</pubDate>
+            <sparkle:version>248</sparkle:version>
+            <sparkle:shortVersionString>0.1.248</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI-Capture-9f4349a.dmg" length="7094117" type="application/octet-stream" sparkle:edSignature="0tBHoKnicQB3usnfoTUKcXlx8xfrBoiDOHTLhTSVEcRH3cVKioWdFpMRr3Wfa2TTx4j4s0QxMe4tRkv0dvlGAg=="/>
+            <sparkle:deltas>
+                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture248-247.delta" sparkle:deltaFrom="247" length="390258" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="iwHaJmJ/3WFEhOBhOi3R/4DLQFcme7bX4Asvkvx6YxoCebH8jM9zM4lliP19gNP653LOc4hlsSC8TU2lMevICw=="/>
+                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture248-246.delta" sparkle:deltaFrom="246" length="418726" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="Svd9OPh17WKbG0vvANp43fbnrt3T0FJBkEFIR5ERGNbgd39p4oB4N8Cpmf0SBbUCBe8KoXXVP9sUbUlO2Ws3Aw=="/>
+                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture248-244.delta" sparkle:deltaFrom="244" length="455178" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="bHkewNG+YRrxxmVlv4ouFWpEEe+tam+5YLkv0SZqepJJUmxoJnD5Mqy231nEZ9FMjET5TrEBuALr4XqHmgE5Cw=="/>
+                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture248-242.delta" sparkle:deltaFrom="242" length="468270" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="//PFOIdsKhsngcYLuVA4MSjADEB5Wml7UdaIwqfSciViKHwyjWzAJCcpOnfB+ASZkS1dA/YSZLCIp+FpSQA2Ag=="/>
+                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture248-240.delta" sparkle:deltaFrom="240" length="496870" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="oHSSa06Yiz3BTjp5YwP87zL+Sd7DwDcmeid2l7ZKlJProiTemfnqf3tsMsD9pUTE2gXpY6FaoFP9+X28klDMAA=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>0.1.247</title>
             <pubDate>Sun, 18 Oct 2026 23:38:50 -0700</pubDate>
             <sparkle:version>247</sparkle:version>
@@ -32,22 +48,6 @@
                 <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture246-240.delta" sparkle:deltaFrom="240" length="395930" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="BQQbMUQtXyd6qJ5dDVJnS30g+mP0ESy0jeLDc7Hbwad09WG5LEZIdCXHZPntZf3bzeo5GVm2WGDdDRjDCHm/DQ=="/>
                 <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture246-239.delta" sparkle:deltaFrom="239" length="397874" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="uMDqjyL/BO9wUR/SxyiCEkJHqIRKlhrE+18mHkzpyuQgqq9Sit17ao2Ah8rPQKALECL96EX9FK/eTW3Uk9NXCA=="/>
                 <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture246-238.delta" sparkle:deltaFrom="238" length="423822" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="bOoAjPjYmHtYDyXSEh0TJ/YYcKMplHUnWNpMSBFNX7+nZtSbOnjL9NJR61BFeRs5//xiLAtySk9mdcDPnQRCBw=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>0.1.244</title>
-            <pubDate>Sun, 18 Oct 2026 22:40:08 -0700</pubDate>
-            <sparkle:version>244</sparkle:version>
-            <sparkle:shortVersionString>0.1.244</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI-Capture-4f6056a.dmg" length="7131957" type="application/octet-stream" sparkle:edSignature="h8AWpplODZasuyuJv3UqNO3PZw2bQ7PUrz1Dj6sbZs/MOkbtcWW7Mz32YkCpc5//NHn2Bqe/rrSJnL8w2facAg=="/>
-            <sparkle:deltas>
-                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture244-242.delta" sparkle:deltaFrom="242" length="457674" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="t7CJbZZwdbgEfKz3QVGBvP1gsB1BUeh1DP4NdOSU0Z8ldfyS0mrI637KgnTLKi/tBm9yxXLTcMQ/z4hiicz7Bg=="/>
-                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture244-240.delta" sparkle:deltaFrom="240" length="479822" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="RQXwfXmvkm5sdWaoR6Xhraa1fC3HpRBhqSYi9f3FdbWYh3TldzhzsZHuVd4Zj+B2Ol5muVLLPKKtNWO1DujsDg=="/>
-                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture244-239.delta" sparkle:deltaFrom="239" length="477514" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="U7mfoKpKx7WqlBMQ0xifipMTJGFyk1WBXzQpwOwmKan7obJ64Ce9xebxehlUIkq8dE2HG0sJU7YTFrS+CRR2Aw=="/>
-                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture244-238.delta" sparkle:deltaFrom="238" length="492970" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="zwYPUjswmfDMSMGQ2reG92/W9/yDhIRKE4/oVpY9UQllQXNubmFh7aTBoH2oq7NpaIBnmRzobGgO4zXhoBaSAg=="/>
-                <enclosure url="https://bkupbens.github.io/apsi-capture-releases/APSI%20Capture244-236.delta" sparkle:deltaFrom="236" length="657014" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976432" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="zEoSn0ORqC3XhOISe3wTKNAhIjenBljAEB04MV1e6XD65EGu1d0mu/m14K+xuh9FIJgWGaeGCBD2gNoWK/zkCw=="/>
             </sparkle:deltas>
         </item>
     </channel>
