@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 247 · 19 October 2026</p>
+  <p class="meta">For build 255 · 19 October 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -448,7 +448,8 @@ td:first-child { white-space: normal; }
 <p>Headline, event, location, city and country, creator, credit, source, copyright and usage terms. Set once for the game — by the XMP template at ingest, or typed here — and every frame in the tab inherits it. Two commands push a template over frames already here:</p>
 <ul>
 <li><strong>Metadata ▸ Apply XMP to All Frames…</strong> (<kbd>⇧⌘T</kbd>) — for the frames that came in before the headline was right.</li>
-<li><strong>Metadata ▸ Apply XMP to Selected…</strong> (<kbd>⌥⌘T</kbd>) — a different template on a handful: the photographer shooting for two agencies sends one frame of a sequence to each, with its own credit and source.</li>
+<li><strong>Metadata ▸ Apply XMP to Selected…</strong> (<kbd>⌥⌘T</kbd>) — a different template on a handful: the photographer shooting for two agencies sends one frame of a sequence to each, with its own credit and source. With nothing picked it reads <strong>Apply XMP to Current Frame…</strong> and reaches the frame on screen — on the Caption and Edit screens, and in the big view. With a filter on, only frames shown are reached.</li>
+<li><strong>File ▸ Copy Originals to…</strong> — the raws, XMP sidecars and voice notes of the picked frames (or the frame on screen), copied byte for byte into a folder you choose. The XMP carries your captions, fields, marks and edits, so the copy is the whole frame. A file already there of a different size is replaced only if you say so.</li>
 </ul>
 <p>Field limits are shown as they are approached; the agency's systems truncate silently, so the counter is worth a glance.</p>
 <h3 id="working-through-a-run">Working through a run</h3>
@@ -824,7 +825,7 @@ td:first-child { white-space: normal; }
 </tr>
 <tr>
 <td><kbd>⌥⌘T</kbd></td>
-<td>Apply XMP to Selected…</td>
+<td>Apply XMP to Selected… (to Current Frame… when nothing is picked)</td>
 </tr>
 </tbody>
 </table></div>
