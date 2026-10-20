@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 255 · 19 October 2026</p>
+  <p class="meta">For build 257 · 19 October 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -266,9 +266,9 @@ td:first-child { white-space: normal; }
 <p>Click the <strong>red swatch</strong> in the toolbar. The sheet now shows only the red frames, and so will every other screen until you click the swatch again (<a class="figref" href="#fig-batch">figure 5</a>). The rest of the card is still there; it is just out of the way.</p>
 <figure id="fig-batch"><img src="figures/batch.jpg" alt="The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist."><figcaption><b>Figure 5.</b> The window filtered to the red batch: four frames, two of them ready. The swatch is ringed and the tab shows which batches exist.</figcaption></figure>
 <h3 id="caption-them">Caption them</h3>
-<p>Press <kbd>c</kbd>. The first red frame is up with the caption screen beside it. Type what is happening — <em>scores the opening goal</em> — and watch <strong>Rendered caption</strong> build the agency's sentence around it: date, place, your words, venue, credit. Press <kbd>⌘⏎</kbd> (<strong>Confirm &amp; Next</strong>): the caption dot goes green and the next red frame is up. The counter by the name reads <em>2 / 8 red</em> — where you are in the batch. When a frame is the same moment with a different shirt, <kbd>⌃⌘C</kbd> copies the words and <kbd>⌃⌘V</kbd> pastes them.</p>
+<p>Press <kbd>c</kbd>. The first red frame is up with the caption screen beside it. Type what is happening — <em>scores the opening goal</em> — and watch Spelling is checked as you type — a red underline, suggestions on a right-click — and nothing is corrected for you, so a player's name is never changed behind your back. <strong>Rendered caption</strong> build the agency's sentence around it: date, place, your words, venue, credit. Press <kbd>⌘⏎</kbd> (<strong>Confirm &amp; Next</strong>): the caption dot goes green and the next red frame is up. The counter by the name reads <em>2 / 8 red</em> — where you are in the batch. When a frame is the same moment with a different shirt, <kbd>⌃⌘C</kbd> copies the words and <kbd>⌃⌘V</kbd> pastes them.</p>
 <h3 id="correct-them">Correct them</h3>
-<p>Press <kbd>e</kbd>. Press <kbd>⌘U</kbd> for <strong>Auto</strong> tone, pull a slider if it needs it, press <kbd>r</kbd> and drag a crop. The edit dot goes green the moment you change anything. For the run, <kbd>⌥⌘C</kbd> copies the settings from this frame; select the rest in the filmstrip and <kbd>⌥⌘V</kbd> pastes them, or <kbd>⇧⌘S</kbd> syncs them to everything picked.</p>
+<p>Press <kbd>e</kbd>. Press <kbd>⌘U</kbd> for <strong>Auto Tone</strong>, pull a slider if it needs it, press <kbd>r</kbd> and drag a crop. The edit dot goes green the moment you change anything. For the run, <kbd>⌥⌘C</kbd> copies the settings from this frame; select the rest in the filmstrip and <kbd>⌥⌘V</kbd> pastes them, or <kbd>⇧⌘S</kbd> syncs them to everything picked.</p>
 <h3 id="send-them">Send them</h3>
 <p>Press <kbd>t</kbd>. The list says <em>Ready</em> — the frames with both dots green — and <em>Not finished</em>, with why. Choose the destination and type the match in <strong>Subfolder</strong>, and click <strong>Send</strong> above the list. Each frame shows its progress and then a tick; a frame the server refused shows the server's own words in red.</p>
 <h3 id="back-to-the-game">Back to the game</h3>
@@ -449,6 +449,7 @@ td:first-child { white-space: normal; }
 <ul>
 <li><strong>Metadata ▸ Apply XMP to All Frames…</strong> (<kbd>⇧⌘T</kbd>) — for the frames that came in before the headline was right.</li>
 <li><strong>Metadata ▸ Apply XMP to Selected…</strong> (<kbd>⌥⌘T</kbd>) — a different template on a handful: the photographer shooting for two agencies sends one frame of a sequence to each, with its own credit and source. With nothing picked it reads <strong>Apply XMP to Current Frame…</strong> and reaches the frame on screen — on the Caption and Edit screens, and in the big view. With a filter on, only frames shown are reached.</li>
+<li><strong>File ▸ Move to Trash…</strong> (<kbd>⌘⌫</kbd>, or <kbd>⌫</kbd> when no box is being typed in) — the picked frames, or the frame on screen, on any screen: the raw, its XMP and its voice note go to the macOS Trash after you say so, and can be put back from there.</li>
 <li><strong>File ▸ Copy Originals to…</strong> — the raws, XMP sidecars and voice notes of the picked frames (or the frame on screen), copied byte for byte into a folder you choose. The XMP carries your captions, fields, marks and edits, so the copy is the whole frame. A file already there of a different size is replaced only if you say so.</li>
 </ul>
 <p>Field limits are shown as they are approached; the agency's systems truncate silently, so the counter is worth a glance.</p>
@@ -464,7 +465,7 @@ td:first-child { white-space: normal; }
 <li><strong>Histogram</strong> of the frame as corrected.</li>
 <li><strong>The frame's name and its two dots.</strong> The edit dot goes green the moment anything changes.</li>
 <li><strong>Crop &amp; straighten</strong> (<kbd>r</kbd>) — see below.</li>
-<li><strong>Presets, Auto, Copy, Paste</strong> — the presets menu applies a saved set of sliders or saves the current one under a name; <strong>Auto</strong> sets the tone; <strong>Copy</strong> and <strong>Paste</strong> carry the sliders from frame to frame.</li>
+<li><strong>Presets, Auto, Copy, Paste</strong> — the presets menu applies a saved set of sliders or saves the current one under a name; <strong>Auto Tone</strong> sets the tone and leaves white balance alone; <strong>Copy</strong> and <strong>Paste</strong> carry the sliders from frame to frame.</li>
 <li><strong>Fine control</strong> halves every slider's range — ±50, exposure ±2.5 stops — so the same travel of the hand is a smaller change. The numbers mean the same; only the reach changes. Auto respects it.</li>
 <li><strong>The sliders</strong>, in groups. Double-click a name to put that slider back.</li>
 <li><strong>Reset</strong> puts the whole frame back.</li>
@@ -504,14 +505,15 @@ td:first-child { white-space: normal; }
 </table></div>
 <p>They are Lightroom's controls, with Lightroom's names, ranges and defaults.</p>
 <h3 id="auto">Auto</h3>
-<p><kbd>⌘U</kbd> sets exposure, contrast, highlights, shadows, whites, blacks and vibrance from the picture; <kbd>⇧⌘U</kbd> sets the white balance. It is a starting point: look, and pull back what it overdid.</p>
+<p><kbd>⌘U</kbd> (<strong>Auto Tone</strong>) sets exposure, contrast, highlights, shadows, whites, blacks and vibrance from the picture, and never touches white balance; <kbd>⇧⌘U</kbd>, or <strong>Auto</strong> beside <em>White balance</em>, sets the white balance on its own. It is a starting point: look, and pull back what it overdid.</p>
+<p>Hold <kbd>⌥</kbd> while dragging <strong>Whites</strong> or <strong>Blacks</strong> to see only what is clipped, as Lightroom shows it: on black, the points pushed to pure white (a colour where one channel is clipped, white where all three are); on white, the points pushed to pure black. Let go and the picture is back.</p>
 <aside class="why"><b>Why</b> Auto reads a small sample of the frame as it arrived and answers one question per slider. Exposure is set from the lit part of the frame rather than the middle, because half a sports frame is shaded crowd; highlights come down only for pixels that are actually clipped, so a sunlit frame full of white shirts is not darkened for them. Percentiles, not extremes: one specular highlight off a wet shirt does not decide the exposure of a match.</aside>
 <h3 id="crop-and-straighten">Crop and straighten</h3>
 <p>Press <kbd>r</kbd> on any screen. The frame opens on the edit screen with the crop box over it (<a class="figref" href="#fig-crop">figure 10</a>).</p>
 <figure id="fig-crop"><img src="figures/crop.jpg" alt="Crop and straighten. The box stays put; the photograph moves behind it."><figcaption><b>Figure 10.</b> Crop and straighten. The box stays put; the photograph moves behind it.</figcaption></figure>
 <ol>
 <li><strong>Aspect</strong> — free, the original, square, 3:2 or 4:3.</li>
-<li><strong>Angle</strong> — or drag outside the box to straighten.</li>
+<li><strong>Angle</strong> — or drag outside the box to straighten. A side grabbed anywhere along its length moves that side; a corner moves two.</li>
 <li><strong>Output</strong> — the pixel size of the result, on screen the whole time.</li>
 <li><strong>The handles</strong> resize the box.</li>
 <li><strong>Reset</strong> puts the crop back; <strong>Close</strong> keeps it.</li>
@@ -848,7 +850,15 @@ td:first-child { white-space: normal; }
 </tr>
 <tr>
 <td><kbd>⌘U</kbd> <kbd>⇧⌘U</kbd></td>
-<td>Auto tone, auto white balance</td>
+<td>Auto Tone, Auto White Balance</td>
+</tr>
+<tr>
+<td><kbd>⌥</kbd> + drag Whites / Blacks</td>
+<td>Show what is clipped</td>
+</tr>
+<tr>
+<td><kbd>⌫</kbd> or <kbd>⌘⌫</kbd></td>
+<td>Move to Trash — the picked frames, or the frame on screen, asked first</td>
 </tr>
 <tr>
 <td><kbd>⌥⌘C</kbd> <kbd>⌥⌘V</kbd></td>
