@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 257 · 19 October 2026</p>
+  <p class="meta">For build 258 · 19 October 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -506,6 +506,7 @@ td:first-child { white-space: normal; }
 <p>They are Lightroom's controls, with Lightroom's names, ranges and defaults.</p>
 <h3 id="auto">Auto</h3>
 <p><kbd>⌘U</kbd> (<strong>Auto Tone</strong>) sets exposure, contrast, highlights, shadows, whites, blacks and vibrance from the picture, and never touches white balance; <kbd>⇧⌘U</kbd>, or <strong>Auto</strong> beside <em>White balance</em>, sets the white balance on its own. It is a starting point: look, and pull back what it overdid.</p>
+<p>The two dots in the top corners of the histogram light when the picture clips at that end. Click one — or press <kbd>J</kbd> for both — and the clipping shows on the picture: blown highlights in red, crushed shadows in blue. It stays on from frame to frame until clicked off.</p>
 <p>Hold <kbd>⌥</kbd> while dragging <strong>Whites</strong> or <strong>Blacks</strong> to see only what is clipped, as Lightroom shows it: on black, the points pushed to pure white (a colour where one channel is clipped, white where all three are); on white, the points pushed to pure black. Let go and the picture is back.</p>
 <aside class="why"><b>Why</b> Auto reads a small sample of the frame as it arrived and answers one question per slider. Exposure is set from the lit part of the frame rather than the middle, because half a sports frame is shaded crowd; highlights come down only for pixels that are actually clipped, so a sunlit frame full of white shirts is not darkened for them. Percentiles, not extremes: one specular highlight off a wet shirt does not decide the exposure of a match.</aside>
 <h3 id="crop-and-straighten">Crop and straighten</h3>
@@ -855,6 +856,10 @@ td:first-child { white-space: normal; }
 <tr>
 <td><kbd>⌥</kbd> + drag Whites / Blacks</td>
 <td>Show what is clipped</td>
+</tr>
+<tr>
+<td><kbd>J</kbd></td>
+<td>Clipping warnings on the picture, on and off (Edit)</td>
 </tr>
 <tr>
 <td><kbd>⌫</kbd> or <kbd>⌘⌫</kbd></td>
