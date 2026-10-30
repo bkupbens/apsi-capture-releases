@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 320 · 27 October 2026</p>
+  <p class="meta">For build 331 · 30 October 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -338,7 +338,7 @@ td:first-child { white-space: normal; }
 <h2 class="chapter" id="select">Select</h2>
 <p class="lede">Select is where you decide what you are sending. Two views, and everything on the keyboard.</p>
 <h3 id="the-contact-sheet">The contact sheet</h3>
-<p><kbd>g</kbd> from anywhere. Every frame as a thumbnail with its name, time and marks (<a class="figref" href="#fig-window">figure 3</a>). The slider at the top right sets the size; the sheet handles cards of ten thousand frames without slowing down, so scroll freely.</p>
+<p><kbd>g</kbd> from anywhere. Every frame as a thumbnail with its name, time and marks (<a class="figref" href="#fig-window">figure 3</a>). The slider at the top right sets the size; the sheet handles cards of twenty-three thousand frames without slowing down, so scroll freely; stop anywhere and the pictures come in from the middle of the view outwards. An edited frame's thumbnail is its edit, developed from the raw as the Edit screen shows it. It is made while you edit and kept, so coming back to review is instant; a frame edited without being opened, by a preset pasted across a batch, shows the camera's picture for a moment while its own is developed.</p>
 <div class="table"><table>
 <thead>
 <tr>
@@ -403,7 +403,7 @@ td:first-child { white-space: normal; }
 <h3 id="filtering-and-sorting">Filtering and sorting</h3>
 <p>The toolbar narrows the window; what it shows is what every screen then works on, Transmit included.</p>
 <ul>
-<li><strong>Batch swatches</strong> — click a colour to see only that batch; click another to add it; <kbd>⌥</kbd>-click for only that one; click again to clear. The hatched circle is the frames with no colour.</li>
+<li><strong>Batch swatches</strong> — click a colour to see only that batch; click another to add it; click again to clear. <kbd>⌥</kbd>-click a swatch for every colour but that one — <kbd>⌥</kbd> on the hatched circle (the frames with no colour) shows every frame that has a colour — and <kbd>⌥</kbd>-click again for all.</li>
 <li><strong>Stars</strong> — that rating or better.</li>
 <li><strong>All · Selected · Tagged · Untagged</strong> — the frames picked out, or the tagged ones.</li>
 <li><strong>Sort</strong> — capture time, filename, when the file was last modified, batch colour, rating, or a field from the file (ISO, file size…); the arrow flips the order.</li>
@@ -425,7 +425,7 @@ td:first-child { white-space: normal; }
 </ul>
 <p>Click the swatch again for the whole card.</p>
 <h3 id="send-it-and-start-the-next">Send it, and start the next</h3>
-<p>When the batch is on the wire, click the swatch off, go back to shooting, and mark the next batch with the next number. Two batches can be shown together — click both swatches — and <kbd>⌥</kbd>-click a swatch shows only that one.</p>
+<p>When the batch is on the wire, click the swatch off, go back to shooting, and mark the next batch with the next number. Two batches can be shown together — click both swatches.</p>
 <aside class="why"><b>Why</b> A match is not captioned at the end; it is sent in pieces while it is still being played, and every piece has to be found again among thousands of frames. A colour is one keypress and survives everything: it is in the sidecar, Photo Mechanic reads it as a colour class, and the desk sees it on the frames it receives.</aside>
 <h3 id="change-or-clear-a-batch">Change or clear a batch</h3>
 <p>Press another number to move a frame to a different batch; <kbd>0</kbd> clears it. Sort by <strong>Batch colour</strong> to see the batches side by side.</p>
@@ -452,7 +452,8 @@ td:first-child { white-space: normal; }
 <li><strong>Metadata ▸ Apply XMP to All Frames…</strong> (<kbd>⇧⌘T</kbd>) — for the frames that came in before the headline was right.</li>
 <li><strong>Metadata ▸ Apply XMP to Selected…</strong> (<kbd>⌥⌘T</kbd>) — a different template on a handful: the photographer shooting for two agencies sends one frame of a sequence to each, with its own credit and source. With nothing picked it reads <strong>Apply XMP to Current Frame…</strong> and reaches the frame on screen — on the Caption and Edit screens, and in the big view. With a filter on, only frames shown are reached.</li>
 <li><strong>File ▸ Move to Trash…</strong> (<kbd>⌘⌫</kbd>, or <kbd>⌫</kbd> when no box is being typed in) — the picked frames, or the frame on screen, on any screen: the raw, its XMP and its voice note go to the macOS Trash after you say so, and can be put back from there.</li>
-<li><strong>File ▸ Copy Originals to…</strong> — the raws, XMP sidecars and voice notes of the picked frames (or the frame on screen), copied byte for byte into a folder you choose. The XMP carries your captions, fields, marks and edits, so the copy is the whole frame. A file already there of a different size is replaced only if you say so.</li>
+<li><strong>File ▸ Copy Originals to…</strong>, also on the right-click menu of any thumbnail — the raws, XMP sidecars and voice notes of the picked frames (or the frame on screen), copied byte for byte into a folder you choose. The XMP carries your captions, fields, marks and edits, so the copy is the whole frame. If a folder already holds a different picture under a frame's name, Capture asks once, and the answer covers each frame's raw, XMP and voice note together, because Lightroom pairs them by name: <strong>Keep Both</strong> copies the frame's set as <kbd>-2</kbd>, <strong>Replace</strong> moves the other picture's set to the Trash, <strong>Leave Them</strong> copies nothing of that frame. The same picture already there just takes the frame's latest XMP.</li>
+<li><strong>File ▸ Export JPEGs to…</strong>, also on the right-click menu — the picked frames (or the frame on screen) as finished JPEGs in a folder you choose: developed, cropped, the caption and fields inside, full size at the quality set on the Transmit page. Nothing is sent and the Transmit page is left as it is. A JPEG of the same name already there is replaced only if you say so; two frames that would share a name in one export get <kbd>-2</kbd>.</li>
 </ul>
 <p>Field limits are shown as they are approached; the agency's systems truncate silently, so the counter is worth a glance.</p>
 <h3 id="working-through-a-run">Working through a run</h3>
@@ -472,7 +473,7 @@ td:first-child { white-space: normal; }
 <li><strong>The sliders</strong>, in groups. Double-click a name to put that slider back. <strong>Reset</strong>, at the foot of the panel, puts the whole frame back; <kbd>⌘Z</kbd> takes back the last change.</li>
 <li><strong>The white balance picker</strong> (<kbd>w</kbd>) — click it, then click something in the picture that should be grey.</li>
 <li><strong>Capture only</strong> — Haze, Smooth and Background, which Lightroom has no setting for (below).</li>
-<li><strong>The filmstrip</strong> — the frames in the window (the batch, if one is on). Arrow keys move; click a run or <kbd>⌘</kbd>-click to add.</li>
+<li><strong>The filmstrip</strong> — the frames in the window (the batch, if one is on). Arrow keys move; click a run or <kbd>⌘</kbd>-click to add. An edited frame shows its edit there once you have paused on a frame; while you are moving it shows the camera's picture, cropped.</li>
 <li><strong>Paste settings</strong> onto every frame picked in the filmstrip; <strong>All</strong> and <strong>None</strong> pick them.</li>
 </ol>
 <h3 id="the-sliders">The sliders</h3>
@@ -952,6 +953,11 @@ td:first-child { white-space: normal; }
 <td>The edit screen looks soft next to the zoom</td>
 <td>The edit view is a fitted preview; <kbd>z</kbd> and the loupe show the sensor's pixels magnified</td>
 <td>Judge sharpness with <kbd>z</kbd> or the loupe</td>
+</tr>
+<tr>
+<td>The window stops moving for a moment</td>
+<td>Something held the app up; it writes a line about each hold-up to a file</td>
+<td>Send the desk <code>stalls.log</code>, in <code>~/Library/Logs/APSI Capture/</code>, with the build and the time it happened</td>
 </tr>
 <tr>
 <td>No update is offered</td>
