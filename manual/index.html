@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 331 · 30 October 2026</p>
+  <p class="meta">For build 333 · 30 October 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -468,7 +468,7 @@ td:first-child { white-space: normal; }
 <li><strong>Histogram</strong> of the frame as corrected.</li>
 <li><strong>The frame's name and its two dots.</strong> The edit dot goes green the moment anything changes.</li>
 <li><strong>Crop &amp; straighten</strong> (<kbd>r</kbd>) — see below.</li>
-<li><strong>Presets, Auto, Copy, Paste</strong> — the presets menu applies a saved set of sliders or saves the current one under a name; <strong>Auto Tone</strong> sets the tone and leaves white balance alone; <strong>Copy</strong> and <strong>Paste</strong> carry the sliders from frame to frame.</li>
+<li><strong>Presets, Auto, Copy, Paste</strong> — the presets menu applies a saved set of sliders, saves the current one under a name, or imports a preset from Lightroom; <strong>Auto Tone</strong> sets the tone and leaves white balance alone; <strong>Copy</strong> and <strong>Paste</strong> carry the sliders from frame to frame.</li>
 <li><strong>Fine control</strong> halves every slider's range — ±50, exposure ±2.5 stops — so the same travel of the hand is a smaller change. The numbers mean the same; only the reach changes. Auto respects it.</li>
 <li><strong>The sliders</strong>, in groups. Double-click a name to put that slider back. <strong>Reset</strong>, at the foot of the panel, puts the whole frame back; <kbd>⌘Z</kbd> takes back the last change.</li>
 <li><strong>The white balance picker</strong> (<kbd>w</kbd>) — click it, then click something in the picture that should be grey.</li>
@@ -546,6 +546,7 @@ td:first-child { white-space: normal; }
 <li><strong>Sync Settings to Selection</strong> (<kbd>⇧⌘S</kbd>) — the frame in hand to every frame picked with it. Pick the run in the filmstrip (click, <kbd>⇧</kbd>-click, or <strong>All</strong>); the frame you corrected stays the primary.</li>
 </ul>
 <p>The working method the filmstrip is built for: start from a preset, fine-tune one frame, paste those settings onto the others, then tweak each one.</p>
+<p><strong>A preset from Lightroom.</strong> In the presets menu, choose <strong>Import from Lightroom…</strong>. It opens at the folder where Lightroom keeps its presets; pick one or several <kbd>.xmp</kbd> files and click <strong>Import</strong>. Each joins the menu under its Lightroom name and never replaces a preset already there. As in Lightroom, it changes only the settings it holds; everything else on the frame stays. Settings Capture has no control for, such as a tone curve, HSL or grain, are left out and the import lists them, so a look built on those will not match Lightroom. The older <code>.lrtemplate</code> format is not read.</p>
 <h2 class="chapter" id="transmit">Transmit</h2>
 <p class="lede">Which frames are finished, what is missing from the ones that are not, where they go, and the button that sends them.</p>
 <p><kbd>t</kbd> opens the screen (<a class="figref" href="#fig-transmit">figure 11</a>). The frames shown are the frames in the window — if a batch is on, the batch.</p>
