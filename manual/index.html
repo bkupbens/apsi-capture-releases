@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 347 · 1 November 2026</p>
+  <p class="meta">For build 372 · 9 November 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -211,7 +211,8 @@ td:first-child { white-space: normal; }
 <h3 id="ready">Ready</h3>
 <p>A frame is <strong>ready</strong> when it has been both captioned and edited. Transmit sends the ready frames and says what is missing from the others — <em>no caption</em>, <em>caption not confirmed</em>, <em>not edited</em>. Nothing stops you sending an unfinished frame when the whistle is close; the list just tells you what you are sending.</p>
 <h3 id="where-your-work-is-kept">Where your work is kept</h3>
-<p>Beside each frame, in a <kbd>.XMP</kbd> sidecar: the batch colour, rating, tag, the caption, and the correction. The raw file is never written to. The sidecars are the ones Photo Mechanic writes, so a card marked up in Photo Mechanic opens here with its colour classes intact, and the other way round.</p>
+<p>Beside each frame, in a <kbd>.XMP</kbd> sidecar: the batch colour, rating, tag, the caption, and the correction. The raw file is never written to. The sidecars are the ones Photo Mechanic writes, so a card marked up in Photo Mechanic opens here with its colour classes intact, and the other way round. A JPEG marked in Photo Mechanic carries its marks inside the file rather than beside it; those are read too.</p>
+<p>Nothing Capture writes ever replaces a file that is already there. Where a name is taken by a different picture, the new one lands beside it as <kbd>-2</kbd>, or, when you are watching, Capture asks first.</p>
 <h2 class="chapter" id="installing-and-updating">Installing and updating</h2>
 <p class="lede">Install once from the DMG; after that the app updates itself.</p>
 <h3 id="install">Install</h3>
@@ -283,19 +284,19 @@ td:first-child { white-space: normal; }
 <li>Press <kbd>o</kbd>, or choose <strong>File ▸ Open…</strong> (<kbd>⌘O</kbd>).</li>
 <li>Pick the folder that holds the frames — a card's <kbd>DCIM</kbd> folder, or any folder on the Mac.</li>
 </ol>
-<p>It opens as a tab named after the folder. The count in the tab rises as the frames are read, and the colours and ratings already on them appear a moment later. Frames that land in that folder while it is open — from a card still being written, from the camera, from the desk — join the sheet by themselves.</p>
+<p>It opens as a tab named after the folder. The count in the tab rises as the frames are read, and the colours and ratings already on them appear a moment later. JPEGs marked in Photo Mechanic show their colour, stars, tag and caption, read from inside the file; opening a folder writes nothing to it. Frames that land in that folder while it is open — from a card still being written, from the camera, from the desk — join the sheet by themselves.</p>
 <p><strong>File ▸ Open Recent</strong> lists the last folders; <kbd>⌘W</kbd> closes a tab. Several can be open at once.</p>
 <h3 id="ingest-a-card">Ingest a card</h3>
 <p>Ingest copies the card to a folder on the Mac and opens the copy — what you want before the card goes back in the camera.</p>
 <figure id="fig-ingest"><img src="figures/ingest.jpg" alt="The ingest sheet. Source, what to copy, where to, and the template that goes on every frame."><figcaption><b>Figure 6.</b> The ingest sheet. Source, what to copy, where to, and the template that goes on every frame.</figcaption></figure>
 <ol>
-<li><strong>From Card</strong> copies a card in the reader. <strong>From Camera</strong> reads the card in a body on a USB-C cable.</li>
+<li><strong>From Card</strong> copies a card in the reader. <strong>From Camera</strong> takes frames from the camera itself, over FTP or the cable — see below.</li>
 <li><strong>Source</strong> — the cards mounted. <strong>Rescan</strong> looks again; <strong>Select Folder…</strong> picks any folder.</li>
-<li><strong>Download images</strong> copies the frames (each one verified by size, so the card can be formatted afterwards). <strong>Incremental images only</strong> skips frames already ingested from this card — for a card you top up during the day. <strong>Locked images only</strong> takes just the frames you protected on the camera: cull in-camera, ingest the keepers.</li>
+<li><strong>Download images</strong> copies the frames (each one verified by size, so the card can be formatted afterwards). <strong>Incremental images only</strong> skips every frame Capture has imported before, from this card or from the camera, whichever folder it went into — so a card with yesterday's frames still on it, imported into today's new folder, brings only today's. The finished line says how many were left on the card. Turn it off to take everything. <strong>Locked images only</strong> takes just the frames you protected on the camera: cull in-camera, ingest the keepers.</li>
 <li><strong>Destination</strong> — the folder the copy goes into, named for the day (<strong>Today</strong>) or whatever you type.</li>
 <li><strong>Apply a template to everything ingested</strong> — the XMP template (headline, credit, source…) goes onto every frame as it lands, so nothing sits there with only a filename. <strong>Edit…</strong> changes it; <strong>Manage…</strong> opens the library.</li>
 </ol>
-<p>Put a card in the reader and the sheet opens by itself; or press <kbd>i</kbd>, or choose <strong>File ▸ Ingest…</strong> (<kbd>⇧⌘I</kbd>). Set the sheet and click <strong>Ingest</strong>. The progress line shows <em>moved of total</em>; the tab is usable while it copies.</p>
+<p>Put a card in the reader and the sheet opens by itself; or press <kbd>i</kbd>, or choose <strong>File ▸ Ingest…</strong> (<kbd>⇧⌘I</kbd>). Set the sheet and click <strong>Ingest</strong>. The progress line shows <em>moved of total</em>; the tab is usable while it copies. A sidecar or voice note already in the destination is kept, never replaced by the card's.</p>
 <h3 id="from-the-camera-over-ftp">From the camera over FTP</h3>
 <p>Bodies with Ethernet or Wi‑Fi (Canon R1, R3, R5 and others) can send each frame to an FTP server as it is shot. The app <em>is</em> the server: it listens on the local network, and frames land straight in the open tab.</p>
 <ol>
@@ -332,9 +333,20 @@ td:first-child { white-space: normal; }
 </tr>
 </tbody>
 </table></div>
-<p>The first time, macOS asks for <strong>Local Network</strong> permission; allow it. Nothing else on the Mac is affected — the app only accepts connections and never opens the Mac to the internet. A frame reaches the sheet the moment it has finished arriving. <strong>File ▸ Stop Listening</strong> stops.</p>
+<p>The first time, macOS asks for <strong>Local Network</strong> permission; allow it. Nothing else on the Mac is affected — the app only accepts connections and never opens the Mac to the internet. A frame reaches the sheet the moment it has finished arriving. A frame whose name is already taken by a different picture in the folder lands beside it as <kbd>-2</kbd>; the same frame sent twice is kept once. <strong>File ▸ Stop Listening</strong> stops.</p>
 <h3 id="tethered-over-usb">Tethered over USB</h3>
-<p>Plug the body in. The status bar's <strong>tethered</strong> light comes on and the File menu reads <em>Listening (USB-C)</em>; each frame transfers as it is shot. <em>Locked images only</em> and <em>Incremental</em> apply here too, so a protected frame is the gesture that chooses one in the field.</p>
+<p>Plug the body into the Mac with a USB-C cable. The ingest sheet opens on <strong>From Camera</strong>; choose <strong>Tethered (USB-C)</strong>. The Mac takes the camera and reads its card, and the sheet says how many frames it found and how many are locked.</p>
+<ol>
+<li><strong>Take from: Card 1 · Card 2 · Both</strong> — which of the camera's cards the frames come from. A body set to write the raw to card 1 and a JPEG to card 2 writes every frame twice; <strong>Card 1</strong> takes the raws only. The choice is remembered.</li>
+<li><strong>Pull <em>n</em> Frames Now</strong> (green) takes what is already on the card and not yet on the Mac — the morning's work, before you start listening. It looks at the newest six hundred frames on each card; for a whole card, take it out and put it in a reader.</li>
+<li><strong>Start Listening</strong> keeps taking frames as you work. What it takes depends on <strong>Locked images only</strong>:<ul>
+<li><strong>Off</strong> — every frame, a second after it is shot. The shutter, playback and Protect all work with the cable in, and every frame is still written to the card.</li>
+<li><strong>On</strong> — only the frames you protect on the camera, whenever they were shot. The card is checked every few seconds, so a frame comes across a moment after you press Protect. A frame you have not protected does not come, which is the point: Protect is the gesture that chooses a frame in the field.</li>
+</ul>
+</li>
+</ol>
+<p>The status bar's <strong>tethered</strong> light is on while listening, and the File menu reads <em>Listening (USB-C)</em>. <em>Incremental</em> applies here too.</p>
+<p>Use a <strong>USB 3</strong> (10 Gb/s) data cable straight into the Mac. A charging cable or a hub can hold the camera to USB 2, about twenty times slower: a raw a second. Canon's EOS Utility, Photos and Lightroom can each take the camera when it is plugged in, and nothing else can have it while they do; quit them first.</p>
 <h2 class="chapter" id="select">Select</h2>
 <p class="lede">Select is where you decide what you are sending. Two views, and everything on the keyboard.</p>
 <h3 id="the-contact-sheet">The contact sheet</h3>
@@ -368,7 +380,8 @@ td:first-child { white-space: normal; }
 <p>A mark applies to every picked frame at once, so pick a run and press the key.</p>
 <h3 id="the-big-view">The big view</h3>
 <p><kbd>s</kbd>, <kbd>space</kbd>, <kbd>return</kbd>, or double-click a thumbnail: one frame filling the window, sharp enough to judge focus. Arrow keys move through the frames and the sheet follows. <kbd>esc</kbd> or <kbd>g</kbd> goes back.</p>
-<figure id="fig-view"><img src="figures/view.jpg" alt="The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar."><figcaption><b>Figure 7.</b> The big view. Name, exposure and the two dots at the bottom left; the loupe factor in the status bar.</figcaption></figure>
+<figure id="fig-view"><img src="figures/view.jpg" alt="The big view. The frame&#x27;s details on the left of the bar; its stars, colour and tag at the right."><figcaption><b>Figure 7.</b> The big view. The frame&#x27;s details on the left of the bar; its stars, colour and tag at the right.</figcaption></figure>
+<p>The bar along the bottom reads the frame. On the left, what it is: the name, the two dots, then shutter, aperture, ISO, focal length and the lens in brackets — <em>1/2500  f/2.8  ISO 400  400mm  (RF400mm F2.8 L IS USM)</em> — and the voice note if there is one. At the right edge, how you have marked it: the stars, the batch colour, and a box that is ticked when the frame is tagged and empty when it is not. The marks stay at the edge, so nothing moves along as you mark.</p>
 <p><strong>Looking closer.</strong> Hold the mouse button down anywhere on the picture for the <strong>loupe</strong> — that spot at the factor on the loupe slider in the status bar, which <kbd>⌘+</kbd>, <kbd>⌘−</kbd> and <kbd>⌘0</kbd> change. Let go and it comes back. Press <kbd>z</kbd> to <strong>zoom</strong> the whole frame at that same factor, drag to pan, <kbd>z</kbd> or <kbd>esc</kbd> to leave. <kbd>⌘0</kbd> sets the factor to 1:1, one screen pixel per sensor pixel, if that is what you want to judge by.</p>
 <p><strong>Before and after.</strong> <kbd>\</kbd> shows the frame as it came off the camera; press it again for your version.</p>
 <h3 id="marking-frames">Marking frames</h3>
@@ -395,7 +408,7 @@ td:first-child { white-space: normal; }
 <tr>
 <td>Tag</td>
 <td><kbd>p</kbd> (or <kbd>⌘T</kbd>) toggles</td>
-<td>a tick top-left</td>
+<td>a tick top-left of the thumbnail; on the big view, a box at the right of the bar, ticked or empty</td>
 </tr>
 </tbody>
 </table></div>
@@ -445,7 +458,7 @@ td:first-child { white-space: normal; }
 <p>Along the bottom is the same <strong>filmstrip</strong> as on Edit: the frames in the window (the batch, if one is on), the one you are on outlined. Click a frame to caption it; <kbd>⇧</kbd>-click a run or <kbd>⌘</kbd>-click to pick several, for <strong>Apply XMP to Selected…</strong>. It has no Paste settings button — that is Edit's.</p>
 <p><strong>← Back</strong> and <strong>Next →</strong> (<kbd>⌘[</kbd>, <kbd>⌘]</kbd>) move without confirming. Nothing is lost by moving on: the words are saved as you type them. What the app needs to know is when a caption is <em>finished</em>, which is what confirming says — and it is what Transmit reports as <em>caption not confirmed</em> until you do.</p>
 <h3 id="codes">Codes</h3>
-<p>Type a code between full stops — <kbd>.81.</kbd> — and it becomes the player: <em>Oscar Piastri (81) of Australia and McLaren</em>. The lists come from code sheets — a squad list, an entry list, one you keep yourself — loaded under <strong>Metadata ▸ Code Replacement…</strong> (see <a href="#setting-up">Setting up</a>). A code that no sheet knows is left as typed.</p>
+<p>Type a code between full stops — <kbd>.81.</kbd> — and it becomes the player: <em>Oscar Piastri (81) of Australia and McLaren</em>. A code is one word, so the full stops in a name already in the caption — <em>Michael Penix Jr.</em>, <em>C.J. Henderson</em> — never stop the next code expanding. The lists come from code sheets — a squad list, an entry list, one you keep yourself — loaded under <strong>Metadata ▸ Code Replacement…</strong> (see <a href="#setting-up">Setting up</a>). A code that no sheet knows is left as typed.</p>
 <h3 id="the-assignment">The assignment</h3>
 <p>Headline, event, location, city and country, creator, credit, source, copyright and usage terms. Set once for the game — by the XMP template at ingest, or typed here — and every frame in the tab inherits it. Two commands push a template over frames already here:</p>
 <ul>
@@ -453,7 +466,7 @@ td:first-child { white-space: normal; }
 <li><strong>Metadata ▸ Apply XMP to Selected…</strong> (<kbd>⌥⌘T</kbd>) — a different template on a handful: the photographer shooting for two agencies sends one frame of a sequence to each, with its own credit and source. With nothing picked it reads <strong>Apply XMP to Current Frame…</strong> and reaches the frame on screen — on the Caption and Edit screens, and in the big view. With a filter on, only frames shown are reached.</li>
 <li><strong>File ▸ Move to Trash…</strong> (<kbd>⌘⌫</kbd>, or <kbd>⌫</kbd> when no box is being typed in) — the picked frames, or the frame on screen, on any screen: the raw, its XMP and its voice note go to the macOS Trash after you say so, and can be put back from there.</li>
 <li><strong>File ▸ Copy Originals to…</strong>, also on the right-click menu of any thumbnail — the raws, XMP sidecars and voice notes of the picked frames (or the frame on screen), copied byte for byte into a folder you choose. The XMP carries your captions, fields, marks and edits, so the copy is the whole frame. If a folder already holds a different picture under a frame's name, Capture asks once, and the answer covers each frame's raw, XMP and voice note together, because Lightroom pairs them by name: <strong>Keep Both</strong> copies the frame's set as <kbd>-2</kbd>, <strong>Replace</strong> moves the other picture's set to the Trash, <strong>Leave Them</strong> copies nothing of that frame. The same picture already there just takes the frame's latest XMP.</li>
-<li><strong>File ▸ Export JPEGs to…</strong>, also on the right-click menu — the picked frames (or the frame on screen) as finished JPEGs in a folder you choose: developed, cropped, the caption and fields inside, full size at the quality set on the Transmit page. Nothing is sent and the Transmit page is left as it is. A JPEG of the same name already there is replaced only if you say so; two frames that would share a name in one export get <kbd>-2</kbd>.</li>
+<li><strong>File ▸ Export JPEGs to…</strong>, also on the right-click menu — the picked frames (or the frame on screen) as finished JPEGs in a folder you choose: developed, cropped, the caption and fields inside, full size at the quality set on the Transmit page. Nothing is sent and the Transmit page is left as it is. A JPEG of the same name already there is replaced only if you say so; two frames that would share a name in one export get <kbd>-2</kbd>. The check is made again as each JPEG lands: if a file of the name appears while the export runs — another export into the same folder — nothing is replaced, and Capture asks: <strong>Keep Both</strong>, <strong>Replace</strong> or <strong>Leave Them</strong>.</li>
 </ul>
 <p>Field limits are shown as they are approached; the agency's systems truncate silently, so the counter is worth a glance.</p>
 <h3 id="working-through-a-run">Working through a run</h3>
@@ -560,7 +573,7 @@ td:first-child { white-space: normal; }
 <li><strong>Preset</strong> — everything in the panel below, remembered under a name. <strong>Save as…</strong>, <strong>Update</strong>, <strong>Delete</strong>. <strong>Ready</strong>, above it, counts how many of the frames shown will go.</li>
 <li><strong>Destination</strong> — <strong>Save locally</strong> renders the JPEGs and sends nothing, or one of your FTP destinations; <strong>Manage…</strong> opens the list.</li>
 <li><strong>Subfolder</strong> — the match, made on the server if it is not there. Typed each game, and deliberately not part of the preset.</li>
-<li><strong>Keep a copy</strong> — a JPEG kept on this Mac as well: beside the photographs in a subfolder you name, so it travels with the frames, or in a folder of its own.</li>
+<li><strong>Keep a copy</strong> — a JPEG kept on this Mac as well: beside the photographs in a subfolder you name, so it travels with the frames, or in a folder of its own. A copy whose name is already taken by a different JPEG is kept as <kbd>-2</kbd>, and the log says so.</li>
 <li><strong>Rename to</strong> — a pattern for the outgoing name. <strong>Patterns</strong> lists the usual ones; <code>{name}</code> is the name on the card, <code>{seq:4}</code> numbers from the start you set (<kbd>0007</kbd>), <code>{date}</code> and <code>{time}</code> take a format, anything else is itself. The line beneath shows what the first frame will be called.</li>
 <li><strong>The file</strong> — always a JPEG, rendered from the raw. <strong>Resize to fit</strong> sets the long edge in pixels (<strong>don't enlarge</strong> for frames already smaller). <strong>Limit the file size</strong> sets a ceiling in MB: quality comes down first, and if that is not enough the frame is made smaller until it fits — better a smaller frame than one the drop refuses. <strong>Quality</strong> is the JPEG quality.</li>
 </ol>
@@ -664,6 +677,11 @@ td:first-child { white-space: normal; }
 <td>Tick, top-left of the picture</td>
 <td>thumbnail</td>
 <td>tagged (<kbd>p</kbd>)</td>
+</tr>
+<tr>
+<td>Box at the right of the bar, ticked or empty</td>
+<td>big view</td>
+<td>tagged, or not</td>
 </tr>
 <tr>
 <td>Orange ring</td>
@@ -951,6 +969,31 @@ td:first-child { white-space: normal; }
 <td>No frames arrive from the camera</td>
 <td>The Mac is not listening, or is not on the same network, or macOS has not been allowed to use the local network</td>
 <td><strong>File ▸ Start Listening</strong>; check the status bar's ftp light and the address beside it; allow Local Network in System Settings ▸ Privacy &amp; Security</td>
+</tr>
+<tr>
+<td>Tethered, and new frames do not come across</td>
+<td><strong>Locked images only</strong> is on, so only protected frames come</td>
+<td>Protect the frame on the camera, or turn <strong>Locked images only</strong> off to take every frame</td>
+</tr>
+<tr>
+<td>Tethered, and the camera is not found, or a warning says it is in use</td>
+<td>EOS Utility, Photos or Lightroom has taken the camera</td>
+<td>Quit them, unplug the camera and plug it back in</td>
+</tr>
+<tr>
+<td>Frames come over the cable slowly</td>
+<td>The cable or a hub is holding the camera to USB 2</td>
+<td>A USB 3 (10 Gb/s) data cable, straight into the Mac</td>
+</tr>
+<tr>
+<td>Each frame arrives twice, a raw and a JPEG</td>
+<td>The camera writes a JPEG to card 2 as well</td>
+<td><strong>Take from: Card 1</strong> on the ingest sheet</td>
+</tr>
+<tr>
+<td>Incremental brought nothing</td>
+<td>Every frame on the card was imported before, into some folder</td>
+<td>The finished line says how many; turn <strong>Incremental images only</strong> off to take them again</td>
 </tr>
 <tr>
 <td>The edit screen looks soft next to the zoom</td>
