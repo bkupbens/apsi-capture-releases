@@ -1,4 +1,4 @@
 # Written by apsi-capture/tools/feed-trim.sh: the newest 10 installers only.
 old_updates/*
+!old_updates/APSI-Capture-6846470.dmg
 !old_updates/APSI-Capture-4efb864.dmg
-!old_updates/APSI-Capture-36ccf30.dmg
