@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 372 · 9 November 2026</p>
+  <p class="meta">For build 386 · 21 November 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -233,7 +233,7 @@ td:first-child { white-space: normal; }
 <h3 id="this-manual">This manual</h3>
 <p><strong>Help ▸ APSI Capture Manual</strong> (<kbd>⌘?</kbd>) opens this manual from inside the app, including with no signal at a ground. The latest copy is also at <a href="https://bkupbens.github.io/apsi-capture-releases/">bkupbens.github.io/apsi-capture-releases</a>, with the newest build.</p>
 <h2 class="chapter" id="the-window">The window</h2>
-<p class="lede">One window, four screens. The toolbar, the tabs and the status bar stay the same on all of them, so once you know the contact sheet you know where everything is. The toolbar also says where you are: <em>212 of 1,480</em> is the frame in hand out of the frames shown, and with a filter on it counts within the filter, <em>3 of 24 selected</em>.</p>
+<p class="lede">One window, four screens. The toolbar, the tabs and the status bar stay the same on all of them, so once you know the contact sheet you know where everything is. The toolbar also says where you are: <em>212 of 1,480</em> is the current frame out of the frames shown, and with a filter on it counts within the filter, <em>3 of 24 selected</em>.</p>
 <figure id="fig-window"><img src="figures/window.jpg" alt="The contact sheet, with the parts of the window that every screen shares."><figcaption><b>Figure 3.</b> The contact sheet, with the parts of the window that every screen shares.</figcaption></figure>
 <ol>
 <li><strong>Tabs</strong> — one per card or folder, with the number of frames and a dot for each batch marked in it. <kbd>+</kbd> opens another; <kbd>⌘W</kbd> closes one.</li>
@@ -251,7 +251,7 @@ td:first-child { white-space: normal; }
 <li><strong>The batch colour</strong>, as a bar along the bottom.</li>
 <li><strong>Two dots</strong> — caption and edit, in the order your steps are in. Green is done, orange is started, none is untouched. Both green means ready.</li>
 <li><strong>A tick</strong> top-left: tagged.</li>
-<li><strong>An orange ring</strong>: the frame in hand. Frames picked with it have a dimmer ring and a tick top-right.</li>
+<li><strong>An orange ring</strong>: the current frame. Frames picked with it have a dimmer ring and a tick top-right.</li>
 <li><strong>A microphone</strong> bottom-left: the camera recorded a voice note. Click it, or press <kbd>v</kbd>, to hear it.</li>
 </ol>
 <p>The same marks appear by the frame's name on the big view and the edit screen, beside the Confirm buttons on the caption screen, and in the Transmit list — a frame reads the same wherever you meet it.</p>
@@ -365,7 +365,7 @@ td:first-child { white-space: normal; }
 </tr>
 <tr>
 <td>Pick a run</td>
-<td>Click the first, <kbd>⇧</kbd>-click the last — or <kbd>⇧</kbd>-arrow from the frame in hand</td>
+<td>Click the first, <kbd>⇧</kbd>-click the last — or <kbd>⇧</kbd>-arrow from the current frame</td>
 </tr>
 <tr>
 <td>Add or remove one</td>
@@ -444,7 +444,7 @@ td:first-child { white-space: normal; }
 <p>Press another number to move a frame to a different batch; <kbd>0</kbd> clears it. Sort by <strong>Batch colour</strong> to see the batches side by side.</p>
 <h2 class="chapter" id="caption">Caption</h2>
 <p class="lede">You type what is happening; the app writes the caption the agency wants around it.</p>
-<p><kbd>c</kbd> opens the screen on the frame in hand, with the big view beside it (<a class="figref" href="#fig-caption">figure 8</a>).</p>
+<p><kbd>c</kbd> opens the screen on the current frame, with the big view beside it (<a class="figref" href="#fig-caption">figure 8</a>).</p>
 <figure id="fig-caption"><img src="figures/caption.jpg" alt="The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath."><figcaption><b>Figure 8.</b> The caption screen. Your words at the top, the agency&#x27;s sentence below them, the assignment underneath.</figcaption></figure>
 <ol>
 <li><strong>Caption</strong> — the words that are yours: <em>scores the opening goal</em>, <em>celebrates with</em>. Codes are expanded as you type.</li>
@@ -465,29 +465,31 @@ td:first-child { white-space: normal; }
 <li><strong>Metadata ▸ Apply XMP to All Frames…</strong> (<kbd>⇧⌘T</kbd>) — for the frames that came in before the headline was right.</li>
 <li><strong>Metadata ▸ Apply XMP to Selected…</strong> (<kbd>⌥⌘T</kbd>) — a different template on a handful: the photographer shooting for two agencies sends one frame of a sequence to each, with its own credit and source. With nothing picked it reads <strong>Apply XMP to Current Frame…</strong> and reaches the frame on screen — on the Caption and Edit screens, and in the big view. With a filter on, only frames shown are reached.</li>
 <li><strong>File ▸ Move to Trash…</strong> (<kbd>⌘⌫</kbd>, or <kbd>⌫</kbd> when no box is being typed in) — the picked frames, or the frame on screen, on any screen: the raw, its XMP and its voice note go to the macOS Trash after you say so, and can be put back from there.</li>
+<li><strong>File ▸ Rename…</strong> — renames the frames' files on disk: each frame's raw, its XMP and its voice note together, because Lightroom pairs them by name. Choose <strong>the selected frames</strong> or <strong>all frames shown</strong>; they are numbered in the order they are on screen. The name is a pattern, as on the Transmit page: <code>{date}</code> and <code>{time}</code> are when the frame was taken and take a format (<code>{date:yyyy-MM-dd}</code>), <code>{seq:4}</code> counts from the number you give (<kbd>0007</kbd>), <code>{name}</code> is the name now, and anything else is itself — <code>KUPBENS-{date}-{seq:4}</code>. The panel shows the first and last new names before anything moves. A name another file in the folder already has stops the rename before a single file is touched, and so does a pattern that would give two frames one name; if anything fails part-way, every file goes back to its old name. The original name is written inside the XMP (<code>xmpMM:PreservedFileName</code>, where Lightroom and Photo Mechanic keep it), so it is never lost. Colours, stars, captions and edits stay with their frames.</li>
+<li><strong>File ▸ Locate Folder…</strong> — when a tab's folder is moved, renamed or deleted while it is open, an orange bar says so at once, and where it went if macOS can tell. The frames stay on screen as they were, but nothing new can be shown sharp, and colours, stars, captions and edits can't be saved until the folder is found. They are kept, not lost: the bar counts them. Click <strong>Locate…</strong> on the bar, or choose this item, and pick the folder where the frames are now. Capture reopens the tab there, frame by frame by name, writes the kept changes into those frames' XMP, and puts back the current frame, the filter and the sort. Quitting with changes still waiting asks first, because quitting loses them.</li>
 <li><strong>File ▸ Copy Originals to…</strong>, also on the right-click menu of any thumbnail — the raws, XMP sidecars and voice notes of the picked frames (or the frame on screen), copied byte for byte into a folder you choose. The XMP carries your captions, fields, marks and edits, so the copy is the whole frame. If a folder already holds a different picture under a frame's name, Capture asks once, and the answer covers each frame's raw, XMP and voice note together, because Lightroom pairs them by name: <strong>Keep Both</strong> copies the frame's set as <kbd>-2</kbd>, <strong>Replace</strong> moves the other picture's set to the Trash, <strong>Leave Them</strong> copies nothing of that frame. The same picture already there just takes the frame's latest XMP.</li>
 <li><strong>File ▸ Export JPEGs to…</strong>, also on the right-click menu — the picked frames (or the frame on screen) as finished JPEGs in a folder you choose: developed, cropped, the caption and fields inside, full size at the quality set on the Transmit page. Nothing is sent and the Transmit page is left as it is. A JPEG of the same name already there is replaced only if you say so; two frames that would share a name in one export get <kbd>-2</kbd>. The check is made again as each JPEG lands: if a file of the name appears while the export runs — another export into the same folder — nothing is replaced, and Capture asks: <strong>Keep Both</strong>, <strong>Replace</strong> or <strong>Leave Them</strong>.</li>
 </ul>
 <p>Field limits are shown as they are approached; the agency's systems truncate silently, so the counter is worth a glance.</p>
 <h3 id="working-through-a-run">Working through a run</h3>
-<p>A run from the same passage of play is the same sentence with a different number on the shirt. Confirm the first, <strong>Copy</strong>, <kbd>⌘⏎</kbd> to the next, <strong>Paste</strong>, <kbd>⌘⏎</kbd> — four keys a frame. <strong>Metadata ▸ Mark Captioned</strong> (<kbd>⌘K</kbd>) confirms the frame in hand from any screen.</p>
+<p>A run from the same passage of play is the same sentence with a different number on the shirt. Confirm the first, <strong>Copy</strong>, <kbd>⌘⏎</kbd> to the next, <strong>Paste</strong>, <kbd>⌘⏎</kbd> — four keys a frame. <strong>Metadata ▸ Mark Captioned</strong> (<kbd>⌘K</kbd>) confirms the current frame from any screen.</p>
 <h3 id="voice-notes_1">Voice notes</h3>
 <p>If the camera recorded a sound memo, the microphone button plays it (<kbd>v</kbd>), so you can caption from what you said at the time.</p>
 <h2 class="chapter" id="edit">Edit</h2>
 <p class="lede">Crop, straighten, tone and colour — on the raw, as numbers beside the frame. The JPEG that leaves is rendered from those numbers, so what you judge here is what the agency gets.</p>
-<p><kbd>e</kbd> opens the frame in hand on the edit screen (<a class="figref" href="#fig-edit">figure 9</a>).</p>
+<p><kbd>e</kbd> opens the current frame on the edit screen (<a class="figref" href="#fig-edit">figure 9</a>).</p>
 <figure id="fig-edit"><img src="figures/edit.jpg" alt="The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below."><figcaption><b>Figure 9.</b> The edit screen. The histogram and sliders on the left, the frame large, the filmstrip below.</figcaption></figure>
 <ol>
 <li><strong>Histogram</strong> of the frame as corrected.</li>
 <li><strong>The frame's name and its two dots.</strong> The edit dot goes green the moment anything changes.</li>
 <li><strong>Crop &amp; straighten</strong> (<kbd>r</kbd>) — see below.</li>
-<li><strong>Presets, Auto, Copy, Paste</strong> — the presets menu applies a saved set of sliders, saves the current one under a name, or imports a preset from Lightroom; <strong>Auto Tone</strong> sets the tone and leaves white balance alone; <strong>Copy</strong> asks which settings to take, and <strong>Paste</strong> puts them on every frame picked, or on the frame in hand if none is.</li>
-<li><strong>Fine control</strong> halves every slider's range — ±50, exposure ±2.5 stops — so the same travel of the hand is a smaller change. The numbers mean the same; only the reach changes. Auto respects it.</li>
-<li><strong>The sliders</strong>, in groups. Double-click a name to put that slider back. <strong>Reset</strong>, at the foot of the panel, puts the whole frame back; <kbd>⌘Z</kbd> takes back the last change.</li>
+<li><strong>Presets, Auto, Copy, Paste</strong> — the presets menu applies a saved set of sliders, saves the current one under a name, or imports a preset from Lightroom; <strong>Auto Tone</strong> sets the tone and leaves white balance alone; <strong>Copy</strong> asks which settings to take, and <strong>Paste</strong> puts them on every frame picked, or on the current frame if none is.</li>
+<li><strong>A slider</strong>, handled as in Lightroom. Every slider has its whole range. Drag the knob from where you grab it; hold <kbd>⇧</kbd> while dragging to move a quarter as fast. Click the track to jump there. With the pointer over a slider, <kbd>↑</kbd> and <kbd>↓</kbd> step it (Exposure by 0.05, the others by 1) and <kbd>⇧↑</kbd> <kbd>⇧↓</kbd> by ten steps; with the pointer anywhere else they move between frames as before. Click the number to type a value and press <kbd>Return</kbd> (<kbd>Esc</kbd> leaves it as it was), or drag the number left and right. Double-click the knob or the name to put it back.</li>
+<li><strong>The sliders</strong>, in groups. <strong>Reset</strong>, at the foot of the panel, puts the whole frame back; <kbd>⌘Z</kbd> takes back the last change, and a whole drag is one <kbd>⌘Z</kbd>.</li>
 <li><strong>The white balance picker</strong> (<kbd>w</kbd>) — click it, then click something in the picture that should be grey.</li>
 <li><strong>Capture only</strong> — Haze, Smooth and Background, which Lightroom has no setting for (below).</li>
 <li><strong>The filmstrip</strong> — the frames in the window (the batch, if one is on). Arrow keys move; click a run or <kbd>⌘</kbd>-click to add. An edited frame shows its edit there once you have paused on a frame; while you are moving it shows the camera's picture, cropped.</li>
-<li><strong>Sync settings…</strong> sends the frame in hand to every frame picked in the filmstrip; <strong>All</strong> and <strong>None</strong> pick them.</li>
+<li><strong>Sync settings…</strong> sends the current frame to every frame picked in the filmstrip; <strong>All</strong> and <strong>None</strong> pick them.</li>
 </ol>
 <h3 id="the-sliders">The sliders</h3>
 <div class="table"><table>
@@ -512,7 +514,7 @@ td:first-child { white-space: normal; }
 </tr>
 <tr>
 <td>Sharpening</td>
-<td>Amount; open the group for Radius, Detail, Masking</td>
+<td>Amount; open the group for Radius, Detail, Masking. As in Lightroom, it holds back in the darkest parts of the picture, so lifted shadows stay clean. A frame edited in build 382 or earlier keeps its sharpening, and its look</td>
 </tr>
 <tr>
 <td>Noise reduction</td>
@@ -556,8 +558,8 @@ td:first-child { white-space: normal; }
 <p>Correct one frame, then push the settings out:</p>
 <ul>
 <li><strong>Copy Settings…</strong> (<kbd>⌥⌘C</kbd>) opens a panel of tick boxes, as in Lightroom: white balance, tone, presence, sharpening, noise reduction, the Capture-only looks, crop and straighten. Tick what should travel and press <kbd>Return</kbd>. It remembers your ticks, so <kbd>⌥⌘C</kbd> then <kbd>Return</kbd> is enough next time. Crop and straighten start unticked. Straighten carries the same angle to every frame.</li>
-<li><strong>Paste Settings</strong> (<kbd>⌥⌘V</kbd>) puts what you copied on every frame picked, or on the frame in hand if none is. Everything you left unticked stays as that frame has it. The <strong>Paste</strong> button above the sliders does the same.</li>
-<li><strong>Sync Settings to Selection…</strong> (<kbd>⇧⌘S</kbd>, or <strong>Sync settings…</strong> under the filmstrip) opens the same panel and sends the frame in hand to every frame picked with it, with nothing copied first. Pick the run in the filmstrip (click, <kbd>⇧</kbd>-click, or <strong>All</strong>); the frame you corrected stays the primary.</li>
+<li><strong>Paste Settings</strong> (<kbd>⌥⌘V</kbd>) puts what you copied on every frame picked, or on the current frame if none is. Everything you left unticked stays as that frame has it. The <strong>Paste</strong> button above the sliders does the same.</li>
+<li><strong>Sync Settings to Selection…</strong> (<kbd>⇧⌘S</kbd>, or <strong>Sync settings…</strong> under the filmstrip) opens the same panel and sends the current frame to every frame picked with it, with nothing copied first. Pick the run in the filmstrip (click, <kbd>⇧</kbd>-click, or <strong>All</strong>); the frame you corrected stays the primary.</li>
 </ul>
 <p>A Kelvin white balance lands as that Kelvin on every frame, measured from each frame's own as-shot.</p>
 <p>The working method the filmstrip is built for: start from a preset, fine-tune one frame, paste those settings onto the others, then tweak each one.</p>
@@ -650,6 +652,7 @@ td:first-child { white-space: normal; }
 <h3 id="the-window_1">The window</h3>
 <ul>
 <li><strong>Window ▸ Panels on the Left</strong> puts the caption and edit panels on the left, for a second screen that sits that way.</li>
+<li><strong>Window ▸ Light Mode</strong> makes Capture light, with black text on white, even when the Mac is set to Dark. Untick it and Capture follows the Mac again. In Light Mode the grid's strips are light grey with black writing, and the space around a picture — on Edit, Caption, the big view, the loupe, the crop and Full Screen — is mid grey instead of black.</li>
 <li><strong>Window ▸ Select · Caption · Edit · Transmit</strong> and <strong>Select · Edit · Caption · Transmit</strong> set the order of the steps. The two dots follow the order.</li>
 </ul>
 <h2 class="chapter" id="reference">Reference</h2>
@@ -686,7 +689,7 @@ td:first-child { white-space: normal; }
 <tr>
 <td>Orange ring</td>
 <td>thumbnail</td>
-<td>the frame in hand; a dimmer ring with a tick top-right is picked with it</td>
+<td>the current frame; a dimmer ring with a tick top-right is picked with it</td>
 </tr>
 <tr>
 <td>Microphone, bottom-left</td>
@@ -711,7 +714,7 @@ td:first-child { white-space: normal; }
 </tbody>
 </table></div>
 <h3 id="the-status-bar">The status bar</h3>
-<p>Left to right: what the app is doing (<em>Scanning…</em>, or the frame in hand and the batch counts), the <strong>ftp</strong> and <strong>tethered</strong> lights, how many frames are ready, the loupe slider and factor, and every key with what it does. Press a key while a text field has the keyboard and the field gets it: click a photograph to take the keys back.</p>
+<p>Left to right: what the app is doing (<em>Scanning…</em>, or the current frame and the batch counts), the <strong>ftp</strong> and <strong>tethered</strong> lights, how many frames are ready, the loupe slider and factor, and every key with what it does. Press a key while a text field has the keyboard and the field gets it: click a photograph to take the keys back.</p>
 <h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
 <p>Single letters work whenever a text field does not have the keyboard.</p>
 <h4 id="screens-and-views">Screens and views</h4>
@@ -917,7 +920,7 @@ td:first-child { white-space: normal; }
 </tr>
 <tr>
 <td><kbd>⌘Z</kbd> <kbd>⇧⌘Z</kbd></td>
-<td>Undo the last correction, redo it — a preset, Auto, a paste (on every frame it reached), the picker, a crop, a slider's whole drag. In a text box they undo the typing instead</td>
+<td>Undo the last change, redo it — a colour or stars (on every frame they reached), a preset, Auto, a paste, the picker, a crop, a slider's whole drag. In a text box they undo the typing instead</td>
 </tr>
 <tr>
 <td><kbd>⇧⌘S</kbd></td>
