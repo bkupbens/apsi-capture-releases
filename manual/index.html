@@ -75,7 +75,7 @@ td:first-child { white-space: normal; }
 <section class="cover">
   <h1>APSI Capture — User's Manual</h1>
   <p class="sub">The photographer's app from Action Plus Sports Images: the card, the choice, the caption, the correction and the wire, in one window.</p>
-  <p class="meta">For build 404 · 26 November 2026</p>
+  <p class="meta">For build 413 · 28 November 2026</p>
 </section>
 
 <div class="toc"><span class="toctitle">Contents</span><ul>
@@ -288,13 +288,14 @@ td:first-child { white-space: normal; }
 <p><strong>File ▸ Open Recent</strong> lists the last folders; <kbd>⌘W</kbd> closes a tab. Several can be open at once.</p>
 <h3 id="ingest-a-card">Ingest a card</h3>
 <p>Ingest copies the card to a folder on the Mac and opens the copy — what you want before the card goes back in the camera.</p>
-<figure id="fig-ingest"><img src="figures/ingest.jpg" alt="The ingest sheet. Source, what to copy, where to, and the template that goes on every frame."><figcaption><b>Figure 6.</b> The ingest sheet. Source, what to copy, where to, and the template that goes on every frame.</figcaption></figure>
+<figure id="fig-ingest"><img src="figures/ingest.jpg" alt="The ingest sheet. Source, what to copy, where to, the template that goes on every frame, and Auto edit."><figcaption><b>Figure 6.</b> The ingest sheet. Source, what to copy, where to, the template that goes on every frame, and Auto edit.</figcaption></figure>
 <ol>
 <li><strong>From Card</strong> copies a card in the reader. <strong>From Camera</strong> takes frames from the camera itself, over FTP or the cable — see below.</li>
 <li><strong>Source</strong> — the cards mounted. <strong>Rescan</strong> looks again; <strong>Select Folder…</strong> picks any folder.</li>
 <li><strong>Download images</strong> copies the frames (each one verified by size, so the card can be formatted afterwards). <strong>Incremental images only</strong> skips every frame Capture has imported before, from this card or from the camera, whichever folder it went into — so a card with yesterday's frames still on it, imported into today's new folder, brings only today's. The finished line says how many were left on the card. Turn it off to take everything. <strong>Locked images only</strong> takes just the frames you protected on the camera: cull in-camera, ingest the keepers.</li>
 <li><strong>Destination</strong> — the folder the copy goes into, named for the day (<strong>Today</strong>) or whatever you type.</li>
 <li><strong>Apply a template to everything ingested</strong> — the XMP template (headline, credit, source…) goes onto every frame as it lands, so nothing sits there with only a filename. <strong>Edit…</strong> changes it; <strong>Manage…</strong> opens the library.</li>
+<li><strong>Auto edit as they arrive</strong> — each frame that arrives unedited is straightened and cropped in the background, as <strong>Edit ▸ Auto Edit</strong> does (see <a href="#crop-and-straighten">Crop and straighten</a>). Colour and tone are left alone. A frame you have already started on is left as it is. The tick is remembered, and it applies to frames from the camera too.</li>
 </ol>
 <p>Put a card in the reader and the sheet opens by itself; or press <kbd>i</kbd>, or choose <strong>File ▸ Ingest…</strong> (<kbd>⇧⌘I</kbd>). Set the sheet and click <strong>Ingest</strong>. The progress line shows <em>moved of total</em>; the tab is usable while it copies. A sidecar or voice note already in the destination is kept, never replaced by the card's.</p>
 <h3 id="from-the-camera-over-ftp">From the camera over FTP</h3>
@@ -545,6 +546,7 @@ td:first-child { white-space: normal; }
 <p>Press <kbd>r</kbd> on any screen. The frame opens on the edit screen with the crop box over it (<a class="figref" href="#fig-crop">figure 10</a>).</p>
 <figure id="fig-crop"><img src="figures/crop.jpg" alt="Crop and straighten. The box stays put; the photograph moves behind it."><figcaption><b>Figure 10.</b> Crop and straighten. The box stays put; the photograph moves behind it.</figcaption></figure>
 <ol>
+<li><strong>Auto Level</strong>, <strong>Auto Crop</strong> and <strong>Auto Edit</strong> — see below.</li>
 <li><strong>Aspect</strong> — free, the original, square, 3:2 or 4:3.</li>
 <li><strong>Angle</strong> — or drag outside the box to straighten. A side grabbed anywhere along its length moves that side; a corner moves two.</li>
 <li><strong>Output</strong> — the pixel size of the result, on screen the whole time.</li>
@@ -552,8 +554,11 @@ td:first-child { white-space: normal; }
 <li><strong>Reset</strong> puts the crop back; <strong>Close</strong> keeps it.</li>
 </ol>
 <p><strong>Photo moves behind the box</strong> is Lightroom's interaction, and the default: drag inside to move the picture, outside to straighten. <kbd>x</kbd> turns the box on its side; <kbd>return</kbd> keeps the crop, <kbd>esc</kbd> puts it back. Nothing is dimmed — what is being cut away stays at full brightness, which is how you decide whether to cut it. A thirds grid shows while framing and a fine grid while straightening, since finding level is the hard part. Straightening shrinks the box to keep it inside the photograph.</p>
-<p><strong>Auto</strong>, beside the angle, straightens the frame on its own uprights — poles, fence posts, glass stanchions, the edges of sign panels, goal posts — or on a level line running most of the way across it, and puts the angle on exactly as the slider would. Where several agree it goes with them; where there is nothing straight to go by it says so and leaves the angle as it was. It reads the picture you see, so check the result as you would your own, and adjust the slider if you disagree.</p>
+<p><strong>Auto Level</strong> (or <strong>Auto</strong> beside the angle) straightens the frame on its own uprights — poles, fence posts, glass stanchions, the edges of sign panels, goal posts — or on a level line running most of the way across it, and puts the angle on exactly as the slider would. Where several agree it goes with them. With no upright it can trust, it levels to the edge of the field, but only when it can see that edge running straight across most of the frame; it never assumes a field. Where there is nothing straight to go by it says so and leaves the angle as it was. It reads the picture you see, so check the result as you would your own, and adjust the slider if you disagree.</p>
 <p><strong>Edit ▸ Auto Straighten</strong> (<kbd>⌥⌘U</kbd>) does the same to every frame picked, from the grid or anywhere else: each frame is read on its own and given its own angle, not the first frame's. The status bar counts them through, and says how many had nothing straight to go by; those are left as they were. One <kbd>⌘Z</kbd> takes the whole batch back.</p>
+<p><strong>Auto Crop</strong> crops the frame the way the desk crops: on the player the camera was focused on, with the ball if it is close, the players touching him, and a keeper lying near him, but not a player with his back to the camera. The size follows the size of the play: a small, distant player gets a generous frame, a big one is barely cropped. It goes vertical only when the play is narrow enough for a vertical to hold it whole (never in hockey or baseball). The play sits level, with a little more room above than below. In soccer, hockey and NFL a horizontal puts the player a little off centre, with the space toward the ball, or the way he is facing. An edge never cuts another player's face in half. An F1 car, or a pack of them, is sized as a car; a line-up shot as a panorama keeps the whole line. The sport is read from the frame's headline, event and keywords. It crops at the angle the frame has, and the box stays on the photograph. It never chooses to keep a frame wide for the place — that is yours. Where it finds nothing to crop on, it says so and leaves the crop as it was.</p>
+<p><strong>Auto Edit</strong> is the two together: Auto Level first, then Auto Crop on the straightened picture. Colour and tone are left alone. Use <kbd>x</kbd> if it chose the other shape.</p>
+<p><strong>Edit ▸ Auto Crop</strong> (<kbd>⌥⌘R</kbd>) and <strong>Edit ▸ Auto Edit</strong> (<kbd>⌥⌘E</kbd>) do the same to every frame picked, each read on its own, and one <kbd>⌘Z</kbd> takes the batch back. The ingest sheet can Auto Edit every frame as it arrives (see <a href="#ingest-a-card">Ingest a card</a>).</p>
 <h3 id="before-and-after">Before and after</h3>
 <p><kbd>\</kbd> shows the frame as it came off the camera; press it again for your version.</p>
 <h3 id="working-across-a-run">Working across a run</h3>
@@ -907,6 +912,14 @@ td:first-child { white-space: normal; }
 <tr>
 <td><kbd>⌥⌘U</kbd></td>
 <td>Auto Straighten — every frame picked, each to its own angle</td>
+</tr>
+<tr>
+<td><kbd>⌥⌘R</kbd></td>
+<td>Auto Crop — every frame picked, each its own crop</td>
+</tr>
+<tr>
+<td><kbd>⌥⌘E</kbd></td>
+<td>Auto Edit — Auto Straighten, then Auto Crop on the straightened picture</td>
 </tr>
 <tr>
 <td><kbd>⌥</kbd> + drag Whites / Blacks</td>
